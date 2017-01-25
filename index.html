@@ -1,25 +1,160 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body class="container-fluid">
+    <div class="col-xs-12">
+      <h1>Tic-Tac-Toe</h1>
+    </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+    <div class="container-fluid"> <!-- wrapping div around user options-->
+
+<!-- IS ANYONE SIGNED IN -->
+      <div class="col-xs-12">
+        <p class="active-user">No one is logged in :(</p>
+      </div>
+
+<!-- SIGN IN LABEL HERE -->
+      <div class="col-xs-12 col-sm-4"> <!-- wrapping div around sign-in and sign-out-->
+        <form id="sign-in">
+          <fieldset>
+            <div class="input">
+              <legend>Already joined? Sign in!</legend>
+            </div>
+            <div class="input">
+              <label class="email">
+              Email
+              <input class="email-sign-in" type="text" name="credentials[email]">
+            </label>
+          </div>
+            <div class="input">
+              <label class="password">
+              Password
+              <input class="pass-sign-in" type="password" name="credentials[password]">
+            </label>
+          </div>
+            <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+        </form>
+
+  <!-- SIGN OUT LABEL HERE -->
+        <form id="sign-out">
+          <fieldset>
+            <div class="input">
+              <legend>Sign Out?</legend>
+            </div>
+              <input type="submit" name="submit" value="Sign Out?">
+          </fieldset>
+        </form>
+
+      </div><!-- wrapping div around sign-in and sign-out-->
+
+<!-- SIGN UP LABEL BELOW -->
+      <div class="col-xs-12 col-sm-4"><!-- wrapping div around sign-up-->
+        <form id="sign-up">
+          <fieldset>
+            <div class="input">
+              <legend>No account yet? Sign up!</legend>
+            </div>
+            <div class="input">
+              <label class="email">
+              Email
+              <input class="email-sign-up"
+              type="text" name="credentials[email]">
+            </label>
+          </div>
+            <div class="input">
+              <label class="password">
+              Password
+              <input class="password-sign-up" type="password" name="credentials[password]">
+            </label>
+          </div>
+            <div class="input">
+              <label class="password_confirmation">
+              Password Confirmation
+              <input class="password-confirmation-sign-up" type="password" name="credentials[password_confirmation]">
+            </label>
+          </div>
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </div><!-- wrapping div around sign-up-->
+
+<!-- CHANGE PASSWORD LABEL HERE -->
+      <div class="col-xs-12 col-sm-4"><!-- wrapping div around change-password-->
+        <form id="change-password">
+          <fieldset>
+            <div class="input">
+              <legend>Change Password!</legend>
+            </div>
+            <div class="input">
+              <label>
+              Current Password
+              <input class="current-password-change" type="password" name="passwords[old]">
+            </label>
+          </div>
+            <div class="input">
+              <label>
+              New Password
+              <input class="new-password-change" type="password" name="passwords[new]">
+            </label>
+          </div>
+            <input type="submit" name="submit" value="Change Password!">
+          </fieldset>
+        </form>
+      </div><!-- wrapping div around change-password-->
+
+    </div><!-- wrapping div around user options-->
+
+<!--  TIC TAC TOE BOARD HERE-->
+    <div class="container-fluid">
+      <div class="row">
+<!-- TODO REMOVE ID='spacei' after making events.js -->
+         <div class="col-xs-4 col-sm-3" id='space0' data-id=0>0</div>
+         <div class="col-xs-4 col-sm-3 top-bot-mid" id='space1' data-id=1>1</div>
+         <div class="col-xs-4 col-sm-3" id='space2' data-id=2>2</div>
+       </div>
+       <div class="row">
+         <div class="col-xs-4 col-sm-3 mid-side" id='space3' data-id=3>3</div>
+         <div class="col-xs-4 col-sm-3 mid-mid" id='space4' data-id=4>4</div>
+         <div class="col-xs-4 col-sm-3 mid-side" id='space5' data-id=5>5</div>
+       </div>
+       <div class="row">
+         <div class="col-xs-4 col-sm-3" id='space6' data-id=6>6</div>
+         <div class="col-xs-4 col-sm-3 top-bot-mid" id='space7' data-id=7>7</div>
+         <div class="col-xs-4 col-sm-3" id='space8' data-id=8>8</div>
+       </div>
+     </div>
+
+<!--  without bootstrap-->
+    <!-- <div class="board">
+      <div class="row">
+        <div class="space" id="space0"><p>0</p></div>
+        <div class="space" id="space1"><p>1</p></div>
+        <div class="space" id="space2"><p>2</p></div>
+      </div>
+      <div class="row">
+        <div class="space" id="space3"><p>3</p></div>
+        <div class="space" id="space4"><p>4</p></div>
+        <div class="space" id="space5"><p>5</p></div>
+      </div>
+      <div class="row">
+        <div class="space" id="space6"><p>6</p></div>
+        <div class="space" id="space7"><p>7</p></div>
+        <div class="space" id="space8"><p>8</p></div>
+      </div>
+    </div> -->
+
+    <script src="assets/scripts/board.js"></script>
+
+  </body>
 </html>

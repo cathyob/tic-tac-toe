@@ -1,2 +1,66 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$pure-red: #f00;
+$pure-black: #000;
+
+$square: 400px;
+$colperrow: 3.1;
+
+.active-user {
+  color: $pure-red;
+  padding: 5px;
+}
+
+// .board {
+//   border: 1px solid $pure-black;
+//   height: $square;
+//   width: $square;
+// };
+
+.input {
+  width: 200px;
+
+  input {
+    float: right;
+  }
+};
+
+legend {
+  font-size: 18px;
+  padding: 5px;
+}
+
+.row {
+
+  .top-bot-mid {
+    border-left: 1px solid $pure-black;
+    border-right: 1px solid $pure-black;
+  }
+
+  .mid-side {
+    border-bottom: 1px solid $pure-black;
+    border-top: 1px solid $pure-black;
+}
+
+  .mid-mid {
+    border: 1px solid $pure-black;
+  }
+
+  .col-xs-4 {
+    height: 100px;
+    width: 100px;
+  }
+
+  .col-sm-3 {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+// .space {
+//   border: 1px dotted $pure-black;
+//   float: left;
+//   height: $square / $colperrow;
+//   width: $square / $colperrow;
+// };
