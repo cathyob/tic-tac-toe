@@ -13,7 +13,7 @@ board.setTurn(ui.turnChange);
 ui.turnChange('X');
 
 // TODO
-// TODO prevent someone from logging in when another user is already active
+// TODO create storage for past games
 // TODO create board function to reset gameBoard and stillPlaying and currentPlayer and call ui.turnChange
 // TODO
 

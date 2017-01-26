@@ -13,6 +13,7 @@ const setWinnerFunction = function(winner) {
 const setTurn = function(callback) {
   turn = callback;
 };
+
 const isTileAvailable = function (index) {
   return stillPlaying && gameBoard[index] === '';
 };
@@ -61,7 +62,7 @@ const makeMove = function (index) {
     } else {
       currentPlayer = 'X';
     }
-    turn(currentPlayer);
+  //   turn(currentPlayer); // WHAT DID THIS DO???
   }
 };
 

@@ -1,30 +1,91 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$pure-red: #f00;
-$pure-black: #000;
+$pink: #da0084;
+$black: #000;
+$white: #fff;
 
-$square: 400px;
-$colperrow: 3.1;
+$blue: #2196f3;
+$yellow: #ffeb3b;
 
 .active-user {
-  color: $pure-red;
+  color: $pink;
   padding: 5px;
 }
 
-// .board {
-//   border: 1px solid $pure-black;
-//   height: $square;
-//   width: $square;
-// };
+body {
+  background-color: $black;
+  color: $pink;
+}
+
+// is a plain button (e.g. sign out)
+.btn {
+  background-color: $black;
+  border: 1px solid $pink;
+  border-radius: 15;
+  color: $pink;
+}
+
+// background top and bottom of button dropdowns
+.dropdown-menu {
+  background-color: $black;
+  color: $pink;
+}
+
+// form {
+//   background-color: $pink;
+// }
+
+// is the dropdown part of the button
+fieldset {
+  background-color: $black;
+  color: $pink;
+}
+
+// .btn-default.active.focus,
+// .btn-default.active:focus,
+// .btn-default.active:hover,
+// .btn-default:active.focus,
+// .btn-default:active:focus,
+// .btn-default:active:hover,
+// .open>.dropdown-toggle.btn-primary.focus,
+// .open>.dropdown-toggle.btn-primary:focus,
+// .open>.dropdown-toggle.btn-primary:hover {
+//   background-color: $yellow;
+//   // above is when menu is clicked
+//   color: $blue;
+// }
+
+.closed {
+  max-width: 300px;
+}
+
+// is the actual button (not the dropdown part)
+.dropdown-toggle {
+  background-color: $black;
+  border: 1px solid $pink;
+  color: $pink;
+}
+
+h1 {
+  color: $pink;
+}
 
 .input {
+  // below changes the label bg color but not font color?
+  // background-color: $black;
+  // color: $pink;
   width: 200px;
+}
 
-  input {
-    float: right;
-  }
-};
+// is the input text fields and buttons (e.g. email, password, "sign in" button inside dropdown menu)
+input {
+  background-color: $black;
+  border: 1px solid $pink;
+  color: $pink;
+  float: right;
+  // padding-right: 25px;
+}
 
 legend {
   font-size: 18px;
@@ -37,17 +98,17 @@ legend {
   vertical-align: middle;
 
   .top-bot-mid {
-    border-left: 1px solid $pure-black;
-    border-right: 1px solid $pure-black;
+    border-left: 1px solid $pink;
+    border-right: 1px solid $pink;
   }
 
   .mid-side {
-    border-bottom: 1px solid $pure-black;
-    border-top: 1px solid $pure-black;
+    border-bottom: 1px solid $pink;
+    border-top: 1px solid $pink;
 }
 
   .mid-mid {
-    border: 1px solid $pure-black;
+    border: 1px solid $pink;
   }
 
   .col-xs-4 {
@@ -58,10 +119,3 @@ legend {
   }
 
 }
-
-// .space {
-//   border: 1px dotted $pure-black;
-//   float: left;
-//   height: $square / $colperrow;
-//   width: $square / $colperrow;
-// };
