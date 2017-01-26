@@ -117,44 +117,25 @@
 
 <!--  TIC TAC TOE BOARD HERE-->
     <div class="container-fluid">
+<!--  TODO add alert for who's turn it is-->
+      <p class="winner"></p>
+    </div>
+    <div class="container-fluid">
       <div class="row">
-<!-- TODO REMOVE ID='spacei' after making events.js -->
-         <div class="col-xs-4 col-sm-3" id='space0' data-id=0>0</div>
-         <div class="col-xs-4 col-sm-3 top-bot-mid" id='space1' data-id=1>1</div>
-         <div class="col-xs-4 col-sm-3" id='space2' data-id=2>2</div>
+         <div class="col-xs-4 col-sm-3 tile" data-id=0>0</div>
+         <div class="col-xs-4 col-sm-3 top-bot-mid tile" data-id=1>1</div>
+         <div class="col-xs-4 col-sm-3 tile" data-id=2>2</div>
        </div>
        <div class="row">
-         <div class="col-xs-4 col-sm-3 mid-side" id='space3' data-id=3>3</div>
-         <div class="col-xs-4 col-sm-3 mid-mid" id='space4' data-id=4>4</div>
-         <div class="col-xs-4 col-sm-3 mid-side" id='space5' data-id=5>5</div>
+         <div class="col-xs-4 col-sm-3 mid-side tile" data-id=3>3</div>
+         <div class="col-xs-4 col-sm-3 mid-mid tile" data-id=4>4</div>
+         <div class="col-xs-4 col-sm-3 mid-side tile" data-id=5>5</div>
        </div>
        <div class="row">
-         <div class="col-xs-4 col-sm-3" id='space6' data-id=6>6</div>
-         <div class="col-xs-4 col-sm-3 top-bot-mid" id='space7' data-id=7>7</div>
-         <div class="col-xs-4 col-sm-3" id='space8' data-id=8>8</div>
+         <div class="col-xs-4 col-sm-3 tile" data-id=6>6</div>
+         <div class="col-xs-4 col-sm-3 top-bot-mid tile" data-id=7>7</div>
+         <div class="col-xs-4 col-sm-3 tile" data-id=8>8</div>
        </div>
      </div>
-
-<!--  without bootstrap-->
-    <!-- <div class="board">
-      <div class="row">
-        <div class="space" id="space0"><p>0</p></div>
-        <div class="space" id="space1"><p>1</p></div>
-        <div class="space" id="space2"><p>2</p></div>
-      </div>
-      <div class="row">
-        <div class="space" id="space3"><p>3</p></div>
-        <div class="space" id="space4"><p>4</p></div>
-        <div class="space" id="space5"><p>5</p></div>
-      </div>
-      <div class="row">
-        <div class="space" id="space6"><p>6</p></div>
-        <div class="space" id="space7"><p>7</p></div>
-        <div class="space" id="space8"><p>8</p></div>
-      </div>
-    </div> -->
-
-    <script src="assets/scripts/board.js"></script>
-
   </body>
 </html>

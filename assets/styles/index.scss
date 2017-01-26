@@ -33,6 +33,9 @@ legend {
 
 .row {
 
+  text-align: center;
+  vertical-align: middle;
+
   .top-bot-mid {
     border-left: 1px solid $pure-black;
     border-right: 1px solid $pure-black;
@@ -48,12 +51,16 @@ legend {
   }
 
   .col-xs-4 {
+    font-size: 40px;
     height: 100px;
+    line-height: 100px;
     width: 100px;
   }
 
   .col-sm-3 {
+    font-size: 60px;
     height: 150px;
+    line-height: 150px;
     width: 150px;
   }
 }

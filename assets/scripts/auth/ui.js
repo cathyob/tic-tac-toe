@@ -72,6 +72,13 @@ const signOutSuccess = (data) => {
   if (data) { console.log(data); }
 };
 
+const gameOver = (data) => {
+  if (data) {
+    $('.winner').text(data + ' won!');
+  } else {
+    $('.winner').text('The game was a draw! Try again?');
+  }
+};
 // $('.email-input-up').val("");
 
 module.exports = {
@@ -83,5 +90,6 @@ module.exports = {
   changePasswordFailure,
   signUpSuccess,
   signUpFailure,
-  signOutSuccess
+  signOutSuccess,
+  gameOver
 };

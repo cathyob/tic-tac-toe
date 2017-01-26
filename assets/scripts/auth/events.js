@@ -6,7 +6,9 @@ const api = require('./api');
 const ui = require('./ui');
 
 const store = require('../store');
-// const board = require('../board');
+const board = require('../board');
+
+board.setWinnerFunction(ui.gameOver);
 
 // TODO prevent someone from logging in when another user is already active
 
@@ -67,39 +69,10 @@ const onSignOut = function (event) {
 
 // CLICKING ACTION
 const clickedSpace = function () {
-
-  if(this.id === "space0") {
-    console.log("0");
-    // if (board.atIndex(0) === '') {
-      // Set board.array[0] to X or O
-    // }
-      // Set board.doNextTurn(0) - write this method in board
-    // else (if you want to show an error)
-      // Update some label / paragraph on the html side to show error
-  } else if(this.id === "space1") {
-    console.log("1");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space2") {
-    console.log("2");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space3") {
-    console.log("3");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space4") {
-    console.log("4");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space5") {
-    console.log("5");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space6") {
-    console.log("6");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space7") {
-    console.log("7");
-    // Set board.array[1] to X or O
-  } else if(this.id === "space8") {
-    console.log("8");
-    // Set board.array[1] to X or O
+  let id = this.getAttribute('data-id');
+  if (board.isTileAvailable(id)) {
+    board.makeMove(id);
+    $(this).text(board.getTileValue(id));
   }
 };
 
@@ -109,15 +82,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
 // handler for newGame?
-  $('#space0').on('click', clickedSpace);
-  $('#space1').on('click', clickedSpace);
-  $('#space2').on('click', clickedSpace);
-  $('#space3').on('click', clickedSpace);
-  $('#space4').on('click', clickedSpace);
-  $('#space5').on('click', clickedSpace);
-  $('#space6').on('click', clickedSpace);
-  $('#space7').on('click', clickedSpace);
-  $('#space8').on('click', clickedSpace);
+  $('.tile').on('click', clickedSpace);
 
   // Add for each space the clickedSpace event
 };
