@@ -3,8 +3,6 @@
 const config = require('../config');
 const store = require('../store');
 
-// TODO prevent someone from logging in when another user is already active
-
 const signUp = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-up',

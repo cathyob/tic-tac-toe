@@ -4,11 +4,15 @@ let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let stillPlaying = true;
 let currentPlayer = 'X';
 let winnerCallback = function(){}; //inside function add way to show winner
+let turn = function(){};
 
 const setWinnerFunction = function(winner) {
   winnerCallback = winner;
 };
 
+const setTurn = function(callback) {
+  turn = callback;
+};
 const isTileAvailable = function (index) {
   return stillPlaying && gameBoard[index] === '';
 };
@@ -57,15 +61,16 @@ const makeMove = function (index) {
     } else {
       currentPlayer = 'X';
     }
+    turn(currentPlayer);
   }
 };
 
 const getWinner = function() {
-  if (winnerIs('x')) {
-    return 'x';
+  if (winnerIs('X')) {
+    return 'X';
   }
-  if (winnerIs('o')) {
-    return 'o';
+  if (winnerIs('O')) {
+    return 'O';
   }
   return null;
 };
@@ -77,4 +82,5 @@ module.exports = {
   winnerIs,
   getWinner,
   setWinnerFunction,
+  setTurn
 };

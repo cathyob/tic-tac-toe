@@ -16,16 +16,110 @@
       <h1>Tic-Tac-Toe</h1>
     </div>
 
-    <div class="container-fluid"> <!-- wrapping div around user options-->
 
-<!-- IS ANYONE SIGNED IN -->
+    <!-- TESTING USER BUTTONS-->
+    <!-- TESTING USER BUTTONS-->
+    <!-- TESTING USER BUTTONS-->
+
+    <!-- IS ANYONE SIGNED IN -->
+    <div class="container-fluid">
       <div class="col-xs-12">
         <p class="active-user">No one is logged in :(</p>
       </div>
+    </div>
+
+    <div class="btn-group" role="group">
+      <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
+          Sign In
+          <span class="caret"></span>
+        </button>
+        <form class="dropdown-menu" id="sign-in">
+          <fieldset>
+            <div class="input">
+              <label class="email">
+              Email
+              <input class="email-sign-in" type="text" name="credentials[email]">
+            </label>
+          </div>
+            <div class="input">
+              <label class="password">
+              Password
+              <input class="pass-sign-in" type="password" name="credentials[password]">
+            </label>
+          </div>
+            <input class="close-dropdown" type="submit" name="submit" value="Sign in!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="btn-group" role="group"> <!-- THIS IS SIGN UP-->
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-up-form">
+            Sign Up
+            <span class="caret"></span>
+          </button>
+          <form class="dropdown-menu" id="sign-up">
+            <fieldset>
+              <div class="input">
+                <label class="email">
+                Email
+                <input class="email-sign-up"
+                type="text" name="credentials[email]">
+              </label>
+            </div>
+              <div class="input">
+                <label class="password">
+                Password
+                <input class="password-sign-up" type="password" name="credentials[password]">
+              </label>
+            </div>
+              <div class="input">
+                <label class="password_confirmation">
+                Password Confirmation
+                <input class="password-confirmation-sign-up" type="password" name="credentials[password_confirmation]">
+              </label>
+            </div>
+              <input class="close-dropdown" type="submit" name="submit" value="Sign up!">
+            </fieldset>
+          </form>
+        </div>
+      <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
+            <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
+              Change Password
+              <span class="caret"></span>
+            </button>
+            <form class="dropdown-menu" id="change-password">
+              <fieldset>
+                <div class="input">
+                  <label>
+                  Current Password
+                  <input class="current-password-change" type="password" name="passwords[old]">
+                </label>
+              </div>
+                <div class="input">
+                  <label>
+                  New Password
+                  <input class="new-password-change" type="password" name="passwords[new]">
+                </label>
+              </div>
+                <input class="close-dropdown" type="submit" name="submit" value="Change Password!">
+              </fieldset>
+            </form>
+          </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-default hidden" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- TESTING USER BUTTONS-->
+    <!-- TESTING USER BUTTONS-->
+    <!-- TESTING USER BUTTONS-->
+
+<!-- wrapping div around user options-->
+    <!-- <div class="container-fluid"> -->
 
 <!-- SIGN IN LABEL HERE -->
-      <div class="col-xs-12 col-sm-4"> <!-- wrapping div around sign-in and sign-out-->
-        <form id="sign-in">
+      <!-- <div class="col-xs-12 col-sm-4">
+        <form class="sign-in-form" id="sign-in">
           <fieldset>
             <div class="input">
               <legend>Already joined? Sign in!</legend>
@@ -44,10 +138,10 @@
           </div>
             <input type="submit" name="submit" value="Sign in!">
           </fieldset>
-        </form>
+        </form> -->
 
   <!-- SIGN OUT LABEL HERE -->
-        <form id="sign-out">
+        <!-- <form class="sign-out-form" id="sign-out">
           <fieldset>
             <div class="input">
               <legend>Sign Out?</legend>
@@ -56,10 +150,10 @@
           </fieldset>
         </form>
 
-      </div><!-- wrapping div around sign-in and sign-out-->
+      </div> -->
 
 <!-- SIGN UP LABEL BELOW -->
-      <div class="col-xs-12 col-sm-4"><!-- wrapping div around sign-up-->
+      <!-- <div class="col-xs-12 col-sm-4">
         <form id="sign-up">
           <fieldset>
             <div class="input">
@@ -87,10 +181,10 @@
             <input type="submit" name="submit" value="Sign up!">
           </fieldset>
         </form>
-      </div><!-- wrapping div around sign-up-->
+      </div> -->
 
 <!-- CHANGE PASSWORD LABEL HERE -->
-      <div class="col-xs-12 col-sm-4"><!-- wrapping div around change-password-->
+      <!-- <div class="col-xs-12 col-sm-4">
         <form id="change-password">
           <fieldset>
             <div class="input">
@@ -111,30 +205,30 @@
             <input type="submit" name="submit" value="Change Password!">
           </fieldset>
         </form>
-      </div><!-- wrapping div around change-password-->
+      </div> -->
 
-    </div><!-- wrapping div around user options-->
+    <!-- </div> -->
+<!-- wrapping div around user options-->
 
 <!--  TIC TAC TOE BOARD HERE-->
     <div class="container-fluid">
-<!--  TODO add alert for who's turn it is-->
       <p class="winner"></p>
     </div>
     <div class="container-fluid">
       <div class="row">
-         <div class="col-xs-4 col-sm-3 tile" data-id=0>0</div>
-         <div class="col-xs-4 col-sm-3 top-bot-mid tile" data-id=1>1</div>
-         <div class="col-xs-4 col-sm-3 tile" data-id=2>2</div>
+         <div class="col-xs-4 tile" data-id=0>0</div>
+         <div class="col-xs-4 top-bot-mid tile" data-id=1>1</div>
+         <div class="col-xs-4 tile" data-id=2>2</div>
        </div>
        <div class="row">
-         <div class="col-xs-4 col-sm-3 mid-side tile" data-id=3>3</div>
-         <div class="col-xs-4 col-sm-3 mid-mid tile" data-id=4>4</div>
-         <div class="col-xs-4 col-sm-3 mid-side tile" data-id=5>5</div>
+         <div class="col-xs-4 mid-side tile" data-id=3>3</div>
+         <div class="col-xs-4 mid-mid tile" data-id=4>4</div>
+         <div class="col-xs-4 mid-side tile" data-id=5>5</div>
        </div>
        <div class="row">
-         <div class="col-xs-4 col-sm-3 tile" data-id=6>6</div>
-         <div class="col-xs-4 col-sm-3 top-bot-mid tile" data-id=7>7</div>
-         <div class="col-xs-4 col-sm-3 tile" data-id=8>8</div>
+         <div class="col-xs-4 tile" data-id=6>6</div>
+         <div class="col-xs-4 top-bot-mid tile" data-id=7>7</div>
+         <div class="col-xs-4 tile" data-id=8>8</div>
        </div>
      </div>
   </body>
