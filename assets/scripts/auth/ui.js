@@ -61,21 +61,10 @@ const signUpSuccess = (data) => {
   $('.email-sign-up').val("");
   $('.password-sign-up').val("");
   $('.password-confirmation-sign-up').val("");
-  // this will show the active user name
-  $('.active-user').text("Thank you for joining! You are now logged in!");
+  // this will confirm their sign up was sucessful
+  $('.active-user').text("Thank you for joining! Please log in to start playing");
   // hide the sign-in and sign-up forms once someone is signed up
-  $('#sign-in-form').hide();
-  $('#sign-up-form').hide();
-  // reveal sign-out and change password options once someone is signed up
-  $("#change-password-form").removeClass('hidden');
-  $("#sign-out").removeClass('hidden');
-  // hides waiting image and please sign in message once logged in
-  $("#please-sign-in").addClass('hidden');
-  $("#waiting-for-user").addClass('hidden');
-  // displays turn/winner, game, and game history if sign in is successfull
-  $("#turn-or-winner").removeClass('hidden');
-  $("#game-board-display").removeClass('hidden');
-  $("#game-history-button").removeClass('hidden');
+  // $('#sign-up-form').hide(); // choosing not to hide the sign up form so user can make another log in if needed
   if (data) { console.log(data); }
 };
 
