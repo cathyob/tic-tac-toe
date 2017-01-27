@@ -63,16 +63,16 @@ const createGamesForUser = function () {
 };
 
 // SAVES GAMES FOR USER
-// const saveGamesForUser = function (data) {
-//   return $.ajax({
-//     url: `${config.apiOrigin}/games/${store.user.id}`,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//     data,
-//   });
-// };
+const saveGamesForUser = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/games/21331`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data,
+  });
+};
 
 module.exports = {
   signUp,
@@ -81,5 +81,5 @@ module.exports = {
   signOut,
   getGamesForUser,
   createGamesForUser,
-  // saveGamesForUser
+  saveGamesForUser
 };

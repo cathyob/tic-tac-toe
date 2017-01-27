@@ -14,17 +14,61 @@ board.setTurn(ui.turnChange); // When a turn is over call turnChange function fo
 ui.turnChange('X'); // Let the UI know that 'X' is the starting player
 
 // TODO
+// TODO fix empty div above game history/change password, sign out buttongs (reduce hides to just the containing div?)
 // TODO create storage for past games
 // TODO ASK INSTRUCTOR - ok to use "username" text prompt because server doesn't allow replacing username credentials?
 // TODO
 
+// CHECK TO SEE IF ANY ACTIVE GAMES
+// const getActiveGames = function () {
+//   event.preventDefault();
+//   api.getGamseForUser()
+//   .then((response) => {
+//   store.games = response.games;
+//   let g = []; // empty array to hold all games that are over
+//   for (let i = 0, max = store.games.length; i < max; i++) {
+//     if (store.games[i].over === false) { // only show games that are over
+//       g.push(store.games[i].id); // pushing those into the empty array
+//     }
+//
+//     // if ($('#temp')) {
+//     //   $('#temp').remove();
+//     // }
+//     if (g[0] === undefined) {
+//       $('#game-history-list').text("You haven't played any games yet. Better get started!");
+//     }
+//   }
+// }
+//   .then(ui.success)
+//   .catch(ui.failure)
+// );
+// };
 
 // USER ACCOUNT ACTIONS
+// const onSignIn = function (event) {
+//   event.preventDefault();
+//
+//   let data = getFormFields(event.target);
+//
+//   // if (store.user !== null) {
+//   //   ui.signInFailureLogged();
+//   // } else {
+//   api.signIn(data)
+//     .then((response) => {
+//       store.user = response.user;
+//       return store.user;
+//     })
+//     .then(ui.signInSuccess)
+//     .then(() => {
+//       console.log(store);
+//     })
+//     .catch(ui.signInFailure);
+//   // }
+// };
+
 const onSignIn = function (event) {
   event.preventDefault();
-
   let data = getFormFields(event.target);
-
   // if (store.user !== null) {
   //   ui.signInFailureLogged();
   // } else {
@@ -33,6 +77,27 @@ const onSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
+     .then(() => {
+      api.getGamesForUser().then((gamesResponse) => {
+        console.log('Response is '); // TESTING
+        console.log(gamesResponse); // TESTING
+      let currentGame = null;
+      let pastGames = [];
+      store.games = gamesResponse.games;
+      store.games.forEach((game) => {
+         if(game.over === false && (currentGame === null)) {
+           currentGame = game;
+         } else if(game.over === true) {
+            pastGames.push(game);
+         } else {
+            // We have another open game, and this is bad, handle it somehow
+        }
+      });
+      ui.setCurrentGame(currentGame); // this method would take the current game object and setup the game on the screen / board model
+      ui.setGameHistory(pastGames); // this method passes an array of all the past games to teh UI to use in the game history section
+      }
+    );
+  })
     .then(ui.signInSuccess)
     .then(() => {
       console.log(store);
@@ -40,28 +105,6 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure);
   // }
 };
-
-// const onSignInTest = function(event) { // This whole method can be deleted when APIs work
-//   event.preventDefault();
-//
-//   let data = getFormFields(event.target);
-//
-//   api.signIn(data)
-//     .then((response) => {
-//       store.user = response.user;
-//       api.getGamesForUser()
-//         .then((result) => {
-//           console.log("Game Success Result");
-//           console.log(result);
-//         })
-//         .catch((result) => {
-//           console.log("Game Failure Result");
-//           console.log(result);
-//         });
-//
-//       return store.user;
-//     });
-// };
 
 // USER ACCOUNT ACTIONS
 const onSignUp = function (event) {
@@ -116,6 +159,28 @@ const clickedSpace = function () {
     $(this).text(board.getTileValue(id));
   }
 };
+
+// const onSignInTest = function(event) { // This whole method can be deleted when APIs work
+//   event.preventDefault();
+//
+//   let data = getFormFields(event.target);
+//
+//   api.signIn(data)
+//     .then((response) => {
+//       store.user = response.user;
+//       api.createGamesForUser()
+//         .then((result) => {
+//           console.log("Game Success Result");
+//           console.log(result);
+//         })
+//         .catch((result) => {
+//           console.log("Game Failure Result");
+//           console.log(result);
+//         });
+//
+//       return store.user;
+//     });
+// };
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);

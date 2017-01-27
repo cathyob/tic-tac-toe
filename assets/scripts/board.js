@@ -7,6 +7,16 @@ let currentPlayer = 'X';
 let winnerCallback = function(){}; // Called as a function when the game is drawn or has a winner
 let turn = function(){}; // Called as a function when each turn is over
 
+let game = {
+  game: {
+    cell: {
+      index: '',
+      value: '',
+    },
+    over: false,
+  },
+}; // using to patch a game
+
 const setWinnerFunction = function(winner) {
   winnerCallback = winner; // Saves a callback we can call when the game is over
 };
@@ -61,9 +71,11 @@ const makeMove = function (index) {
   if (winnerIs(currentPlayer)) { // Check if anyone has won the game
     stillPlaying = false; // Used to stop input because the game is over
     winnerCallback(currentPlayer); // Lets the winner callback run, with winning player
+    game.game.over = true; // changes game's over string to true
   } else if(isDraw()) { // Check if the game is a draw
     stillPlaying = false; // Used to stop input because the game is over
     winnerCallback(null); // Lets the winning callback run, with no winning player
+    game.game.over = true; // changes game's over string to true
   } else { // If no one has won, switch to the next players turn
     if (currentPlayer === 'X') {
       currentPlayer = 'O';
@@ -99,5 +111,5 @@ module.exports = {
   getWinner,
   setWinnerFunction,
   setTurn,
-  resetBoard
+  resetBoard,
 };

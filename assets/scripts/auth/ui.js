@@ -1,6 +1,7 @@
 'use strict';
 
 const store = require('../store');
+const board = require('../board');
 
 const success = (data) => {
   if (data) { console.log(data); }
@@ -22,8 +23,9 @@ const signInSuccess = (data) => {
   // reveal the sign-out and change password options once someone is logged in
   $("#change-password-form").removeClass('hidden');
   $("#sign-out").removeClass('hidden');
-  // hides waiting image once logged in
+  // hides waiting image and please sign in message once logged in
   $("#waiting-for-user").addClass('hidden');
+  $("#please-sign-in").addClass('hidden');
   // displays turn/winner, game, and game history if sign in is successfull
   $("#turn-or-winner").removeClass('hidden');
   $("#game-board-display").removeClass('hidden');
@@ -55,10 +57,10 @@ const changePasswordFailure = (error) => {
 };
 
 const signUpSuccess = (data) => {
-  // these two remove text from input field when successfully submitted
-  // $('.email-sign-up').val("");
-  // $('.password-sign-up').val("");
-  // $('.password-confirmation-sign-up').val("");
+  // these three remove text from input field when successfully submitted
+  $('.email-sign-up').val("");
+  $('.password-sign-up').val("");
+  $('.password-confirmation-sign-up').val("");
   // this will show the active user name
   $('.active-user').text("Thank you for joining! You are now logged in!");
   // hide the sign-in and sign-up forms once someone is signed up
@@ -129,6 +131,18 @@ const startNewGame = () => {
   $("#reset-button").addClass('hidden');
 };
 
+const setCurrentGame = (data) => {
+  store.currentGame = data;
+  console.log("Any new game data?");
+  if (data) { console.log(data); }
+};
+
+const setGameHistory = (data) => {
+  $('#game-history-list').text("This is where game history will go!");
+  console.log("Any game history data?");
+  if (data) { console.log(data); }
+};
+
 module.exports = {
   failure,
   success,
@@ -143,4 +157,6 @@ module.exports = {
   turnChange,
   deleteOldGameTiles,
   startNewGame,
+  setCurrentGame,
+  setGameHistory
 };

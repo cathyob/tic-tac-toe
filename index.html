@@ -86,7 +86,7 @@
       </div>
     </div>
 
-<!-- CHANGE PASSWORD AND SIGN OUT BUTTONS-->
+<!-- GAME HISTORY AND CHANGE PASSWORD AND SIGN OUT BUTTONS-->
     <div class="container topbuttons">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS GAME HISTORY-->
@@ -94,10 +94,8 @@
               Game History
               <span class="caret"></span>
             </button>
-            <div class="dropdown-menu">
-              <p>Test</p>
-              <p>Test</p>
-              <p>Test</p>
+            <div class="dropdown-menu" id="game-history-list">
+              <!-- THIS WILL SHOW GAME IDs IF ANY ACTIVE GAMES-->
             </div>
           </div>
         <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
@@ -165,7 +163,7 @@
        </div>
      </div>
 
-<!-- GAME HISTORY BUTTON HERE-->
+<!-- GAME RESET BUTTON HERE-->
     <div class="container-fluid"> <!-- THIS IS START NEW GAME-->
        <div class="btn-group hidden" role="group" id="reset-button"> <!-- THIS IS START NEW GAME-->
          <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
