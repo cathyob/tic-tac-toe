@@ -13,9 +13,9 @@ let game = {
       index: '',
       value: '',
     },
-    over: false,
-  },
-}; // using to patch a game
+  over: false
+}
+};
 
 const setWinnerFunction = function(winner) {
   winnerCallback = winner; // Saves a callback we can call when the game is over

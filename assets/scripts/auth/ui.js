@@ -133,12 +133,13 @@ const startNewGame = () => {
 
 const setCurrentGame = (data) => {
   store.currentGame = data;
+  board.gameBoard = data.cells;
   console.log("Any new game data?");
   if (data) { console.log(data); }
 };
 
 const setGameHistory = (data) => {
-  $('#game-history-list').text("This is where game history will go!");
+  $('#game-history-list').text("This is where the user's list of games will go!");
   console.log("Any game history data?");
   if (data) { console.log(data); }
 };
