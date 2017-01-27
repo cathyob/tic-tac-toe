@@ -10,12 +10,13 @@ $yellow: #ffeb3b;
 
 .active-user {
   color: $pink;
-  padding: 5px;
+  margin: 0;
 }
 
 body {
   background-color: $black;
   color: $pink;
+  text-align: center;
 }
 
 // is a plain button (e.g. sign out)
@@ -50,6 +51,13 @@ body {
 //   align: center;
 // }
 
+// .container-fluid {
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: 0;
+//   padding-right: 0;
+//  }
+
 // background top and bottom of button dropdowns
 .dropdown-menu {
   background-color: $black;
@@ -66,22 +74,52 @@ fieldset {
   color: $pink;
 }
 
-// .btn-default.active.focus,
-// .btn-default.active:focus,
-// .btn-default.active:hover,
-// .btn-default:active.focus,
-// .btn-default:active:focus,
-// .btn-default:active:hover,
-// .open>.dropdown-toggle.btn-primary.focus,
-// .open>.dropdown-toggle.btn-primary:focus,
-// .open>.dropdown-toggle.btn-primary:hover {
-//   background-color: $yellow;
-//   // above is when menu is clicked
-//   color: $blue;
-// }
-
 .closed {
   max-width: 300px;
+}
+
+// this is the
+.game {
+  background: $black;
+  display: block;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 300px;
+
+  .row {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 300px;
+
+    .top-bot-mid {
+      border-left: 1px solid $pink;
+      border-right: 1px solid $pink;
+    }
+
+    .mid-side {
+      border-bottom: 1px solid $pink;
+      border-top: 1px solid $pink;
+  }
+
+    .mid-mid {
+      border: 1px solid $pink;
+    }
+
+    .col-xs-4 {
+      display: block;
+      font-size: 40px;
+      height: 100px;
+      line-height: 100px;
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      width: 100px;
+    }
+  }
 }
 
 // is the actual button (not the dropdown part)
@@ -91,8 +129,23 @@ fieldset {
   color: $pink;
 }
 
-h1 {
-  color: $pink;
+// sets height of the active-user message
+.game-board {
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  vertical-align: middle;
+
+  div {
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  h1 {
+    color: $pink;
+  }
 }
 
 .input {
@@ -116,30 +169,47 @@ legend {
   padding: 5px;
 }
 
-.row {
-
+// sets height of the please-sign-in message
+.please {
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
-  .top-bot-mid {
-    border-left: 1px solid $pink;
-    border-right: 1px solid $pink;
+  div {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
   }
-
-  .mid-side {
-    border-bottom: 1px solid $pink;
-    border-top: 1px solid $pink;
 }
 
-  .mid-mid {
-    border: 1px solid $pink;
-  }
+// sets height of the turn-or-winner message
+.turn {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
 
-  .col-xs-4 {
-    font-size: 40px;
-    height: 100px;
-    line-height: 100px;
-    width: 100px;
+  div {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
   }
+}
 
+// sets height of the active-user message
+.user-status {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+
+  div {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
 }

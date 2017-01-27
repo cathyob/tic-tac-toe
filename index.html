@@ -11,20 +11,24 @@
     <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
-  <body class="container-fluid">
+  <body class="container">
+
+<!-- TITLE OF WEBSITE-->
+  <div class="container game-name">
     <div class="col-xs-12">
       <h1>Tic-Tac-Toe</h1>
     </div>
+  </div>
 
 <!-- IS ANYONE SIGNED IN -->
-    <div class="container-fluid">
-      <div class="col-xs-12">
+    <div class="container user-status">
+      <div class="col-xs-12 user">
         <p class="active-user">No one is logged in :(</p>
       </div>
     </div>
 
 <!-- SIGN IN AND SIGN UP BUTTONS-->
-    <div class="container-fluid">
+    <div class="container topbuttons">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
@@ -83,7 +87,7 @@
     </div>
 
 <!-- CHANGE PASSWORD AND SIGN OUT BUTTONS-->
-    <div class="container-fluid">
+    <div class="container topbuttons">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS GAME HISTORY-->
             <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
@@ -125,30 +129,36 @@
       </div>
     </div>
 
-<!-- WAITING FOR USER IMAGE HERE-->
-    <div class="container-fluid" id="waiting-for-user">
-      <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
+<!--  PLEASE SIGN IN MESSAGE-->
+    <div class="container please" id="please-sign-in">
+      <div class="col-xs-12">
+        <p>Please sign in or sign up to play a game!</p>
+      </div>
     </div>
 
 <!--  TURN OR WINNER-->
-    <div class="container-fluid hidden" id="turn-or-winner">
+    <div class="container turn hidden" id="turn-or-winner">
       <p class="winner-announcement"></p>
     </div>
 
-<!--  TIC TAC TOE BOARD HERE-->
+<!-- WAITING FOR USER IMAGE-->
+    <div class="container image" id="waiting-for-user">
+      <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
+    </div>
 
-    <div class="container-fluid hidden" id="game-board-display">
-      <div class="row">
+<!--  TIC TAC TOE BOARD-->
+    <div class="container game hidden" id="game-board-display">
+      <div class="col-xs-12 row">
          <div class="col-xs-4 tile" data-id=0></div>
          <div class="col-xs-4 top-bot-mid tile" data-id=1></div>
          <div class="col-xs-4 tile" data-id=2></div>
        </div>
-       <div class="row">
+       <div class="col-xs-12 row">
          <div class="col-xs-4 mid-side tile" data-id=3> </div>
          <div class="col-xs-4 mid-mid tile" data-id=4></div>
          <div class="col-xs-4 mid-side tile" data-id=5></div>
        </div>
-       <div class="row">
+       <div class="col-xs-12 row">
          <div class="col-xs-4 tile" data-id=6></div>
          <div class="col-xs-4 top-bot-mid tile" data-id=7></div>
          <div class="col-xs-4 tile" data-id=8></div>

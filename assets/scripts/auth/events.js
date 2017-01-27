@@ -15,8 +15,6 @@ ui.turnChange('X'); // Let the UI know that 'X' is the starting player
 
 // TODO
 // TODO create storage for past games
-// TODO add hide/show features for game history buttton dropdown
-// TODO attach to game history button/dropdown to reset button group
 // TODO ASK INSTRUCTOR - ok to use "username" text prompt because server doesn't allow replacing username credentials?
 // TODO
 
