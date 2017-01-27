@@ -73,8 +73,8 @@ const saveGamesForUser = function (move, board) {
     data: {
       "game": {
         "cell": {
-          "index": move,
-          "value": "**whatever piece/turn is going**"
+          "index": 0,
+          "value": "X"
         },
     "over": false
   }

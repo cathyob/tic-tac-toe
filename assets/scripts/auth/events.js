@@ -20,8 +20,8 @@ ui.turnChange('X'); // Let the UI know that 'X' is the starting player
 // TODO ASK INSTRUCTOR - ok to use "username" text prompt because server doesn't allow replacing username credentials?
 // TODO
 
-// CHECK TO SEE IF ANY ACTIVE GAMES
-// const getActiveGames = function () {
+// CHECK TO SEE GAMES
+// const getGames = function () {
 //   event.preventDefault();
 //   api.getGamseForUser()
 //   .then((response) => {

@@ -7,7 +7,7 @@ let currentPlayer = 'X';
 let winnerCallback = function(){}; // Called as a function when the game is drawn or has a winner
 let turn = function(){}; // Called as a function when each turn is over
 
-let game = {
+let game = { // referenced by makeMove below
   game: {
     cell: {
       index: '',
@@ -30,17 +30,16 @@ const isTileAvailable = function (index) {
   return stillPlaying && gameBoard[index] === '';
 };
 
-const getTileValue = function (index) {
-  // Gets the current value of the tile
+const getTileValue = function (index) { // Gets the current value of the tile
   return gameBoard[index];
 };
 
-// Provided function
+// Provided function from fundamentals
 const allThree = function(player, cellOne, cellTwo, cellThree) {
   return (cellOne === player) && (cellTwo === player) && (cellThree === player);
 };
 
-// Provided function
+// Provided function from fundamentals
 const winnerIs = function(player) {
   // ROWS BELOW
   return allThree(player, getTileValue('0'), getTileValue('1'), getTileValue('2')) ||
@@ -55,7 +54,7 @@ const winnerIs = function(player) {
          allThree(player, getTileValue('2'), getTileValue('4'), getTileValue('6'));
 };
 
-// Checks if the tile is not blank
+// Checks if the tile is not blank for isDraw for cat's game determination
 const checkTile = function (tile) {
     return tile !== '';
 };

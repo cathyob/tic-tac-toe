@@ -20,16 +20,16 @@ const signInSuccess = (data) => {
   // hide the sign-in and sign-up forms once someone is logged in
   $('#sign-in-form').hide();
   $('#sign-up-form').hide();
-  // reveal the sign-out and change password options once someone is logged in
+  // reveal the sign-out, change password and game list options once someone is logged in
   $("#change-password-form").removeClass('hidden');
   $("#sign-out").removeClass('hidden');
+  $("#game-history-button").removeClass('hidden');
   // hides waiting image and please sign in message once logged in
   $("#waiting-for-user").addClass('hidden');
   $("#please-sign-in").addClass('hidden');
-  // displays turn/winner, game, and game history if sign in is successfull
+  // displays turn/winner and game if sign in is successfull
   $("#turn-or-winner").removeClass('hidden');
   $("#game-board-display").removeClass('hidden');
-  $("#game-history-button").removeClass('hidden');
   if (data) { console.log(data); }
 };
 
@@ -123,6 +123,7 @@ const turnChange = (data) => {
   $('.winner-announcement').text(data + "'s turn!");
 };
 
+// is referenced by events startNewGame
 const deleteOldGameTiles = () => {
   $('.tile').text('');
 };
