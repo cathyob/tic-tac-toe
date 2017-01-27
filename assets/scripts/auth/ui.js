@@ -24,9 +24,10 @@ const signInSuccess = (data) => {
   $("#sign-out").removeClass('hidden');
   // hides waiting image once logged in
   $("#waiting-for-user").addClass('hidden');
-  // displays turn/winner and game if sign in is successfull
+  // displays turn/winner, game, and game history if sign in is successfull
   $("#turn-or-winner").removeClass('hidden');
   $("#game-board-display").removeClass('hidden');
+  $("#game-history-button").removeClass('hidden');
   if (data) { console.log(data); }
 };
 
@@ -66,11 +67,12 @@ const signUpSuccess = (data) => {
   // reveal sign-out and change password options once someone is signed up
   $("#change-password-form").removeClass('hidden');
   $("#sign-out").removeClass('hidden');
-  // ides waiting image once signed up
-  $("#turn-or-winner").removeClass('hidden');
-  // displays turn/winner and game if sign in is successfull
-  $("#game-board-display").removeClass('hidden');
+  // hides waiting image once logged in
   $("#waiting-for-user").addClass('hidden');
+  // displays turn/winner, game, and game history if sign in is successfull
+  $("#turn-or-winner").removeClass('hidden');
+  $("#game-board-display").removeClass('hidden');
+  $("#game-history-button").removeClass('hidden');
   if (data) { console.log(data); }
 };
 
@@ -95,9 +97,13 @@ const signOutSuccess = (data) => {
   $("#sign-out").addClass('hidden');
   // reveals waiting image once signed out
   $("#waiting-for-user").removeClass('hidden');
-  // hides turn/winner and game if sign out is successfull
+  // hides turn/winner, game, and game history if sign out is successfull
   $("#turn-or-winner").addClass('hidden');
   $("#game-board-display").addClass('hidden');
+  $("#game-history-button").addClass('hidden');
+  // removes hidden class and adds back so we don't end up with two hidden classes on reset if signed out before reset game is clicked
+  $("#reset-button").removeClass('hidden');
+  $("#reset-button").addClass('hidden');
   if (data) { console.log(data); }
 };
 

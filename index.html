@@ -24,65 +24,79 @@
     </div>
 
 <!-- SIGN IN AND SIGN UP BUTTONS-->
-    <div class="btn-group" role="group">
-      <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
-          Sign In
-          <span class="caret"></span>
-        </button>
-        <form class="dropdown-menu" id="sign-in">
-          <fieldset>
-            <div class="input">
-              <label class="email">
-              Username
-              <input class="email-sign-in" type="text" name="credentials[email]">
-            </label>
-          </div>
-            <div class="input">
-              <label class="password">
-              Password
-              <input class="pass-sign-in" type="password" name="credentials[password]">
-            </label>
-          </div>
-            <input class="close-dropdown" type="submit" name="submit" value="Sign in!">
-          </fieldset>
-        </form>
-      </div>
-      <div class="btn-group" role="group"> <!-- THIS IS SIGN UP-->
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-up-form">
-            Sign Up
+    <div class="container-fluid">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
+            Sign In
             <span class="caret"></span>
           </button>
-          <form class="dropdown-menu" id="sign-up">
+          <form class="dropdown-menu" id="sign-in">
             <fieldset>
               <div class="input">
                 <label class="email">
                 Username
-                <input class="email-sign-up"
-                type="text" name="credentials[email]">
+                <input class="email-sign-in" type="text" name="credentials[email]">
               </label>
             </div>
               <div class="input">
                 <label class="password">
                 Password
-                <input class="password-sign-up" type="password" name="credentials[password]">
+                <input class="pass-sign-in" type="password" name="credentials[password]">
               </label>
             </div>
-              <div class="input">
-                <label class="password_confirmation">
-                Password Confirmation
-                <input class="password-confirmation-sign-up" type="password" name="credentials[password_confirmation]">
-              </label>
-            </div>
-              <input class="close-dropdown" type="submit" name="submit" value="Sign up!">
+              <input class="close-dropdown" type="submit" name="submit" value="Sign in!">
             </fieldset>
           </form>
         </div>
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN UP-->
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-up-form">
+              Sign Up
+              <span class="caret"></span>
+            </button>
+            <form class="dropdown-menu" id="sign-up">
+              <fieldset>
+                <div class="input">
+                  <label class="email">
+                  Username
+                  <input class="email-sign-up"
+                  type="text" name="credentials[email]">
+                </label>
+              </div>
+                <div class="input">
+                  <label class="password">
+                  Password
+                  <input class="password-sign-up" type="password" name="credentials[password]">
+                </label>
+              </div>
+                <div class="input">
+                  <label class="password_confirmation">
+                  Password Confirmation
+                  <input class="password-confirmation-sign-up" type="password" name="credentials[password_confirmation]">
+                </label>
+              </div>
+                <input class="close-dropdown" type="submit" name="submit" value="Sign up!">
+              </fieldset>
+            </form>
+          </div>
+      </div>
     </div>
 
 <!-- CHANGE PASSWORD AND SIGN OUT BUTTONS-->
-    <div class="btn-group" role="group">
-      <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
+    <div class="container-fluid">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group"> <!-- THIS IS GAME HISTORY-->
+            <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
+              Game History
+              <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu">
+              <p>Test</p>
+              <p>Test</p>
+              <p>Test</p>
+            </div>
+          </div>
+        <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
             <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
               Change Password
               <span class="caret"></span>
@@ -105,14 +119,15 @@
               </fieldset>
             </form>
           </div>
-      <div class="btn-group" role="group"> <!-- THIS IS SIGN OUT-->
-        <button class="btn btn-default hidden" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN OUT-->
+          <button class="btn btn-default hidden" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
+        </div>
       </div>
     </div>
 
 <!-- WAITING FOR USER IMAGE HERE-->
     <div class="container-fluid" id="waiting-for-user">
-      <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" class="closed">
+      <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
     </div>
 
 <!--  TURN OR WINNER-->
@@ -140,11 +155,12 @@
        </div>
      </div>
 
-<!--  RESET BUTTON-->
-   <div class="container-fluid hidden" id="reset-button">
-     <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
-   </div>
-<!-- TODO ADD GAME HISTORY BUTTON HERE-->
+<!-- GAME HISTORY BUTTON HERE-->
+    <div class="container-fluid"> <!-- THIS IS START NEW GAME-->
+       <div class="btn-group hidden" role="group" id="reset-button"> <!-- THIS IS START NEW GAME-->
+         <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
+       </div>
+     </div>
 
   </body>
 </html>

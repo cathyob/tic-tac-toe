@@ -15,9 +15,9 @@ ui.turnChange('X'); // Let the UI know that 'X' is the starting player
 
 // TODO
 // TODO create storage for past games
+// TODO add hide/show features for game history buttton dropdown
 // TODO attach to game history button/dropdown to reset button group
 // TODO ASK INSTRUCTOR - ok to use "username" text prompt because server doesn't allow replacing username credentials?
-// TODO hide new game button after sign out
 // TODO
 
 
@@ -42,6 +42,28 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure);
   // }
 };
+
+// const onSignInTest = function(event) { // This whole method can be deleted when APIs work
+//   event.preventDefault();
+//
+//   let data = getFormFields(event.target);
+//
+//   api.signIn(data)
+//     .then((response) => {
+//       store.user = response.user;
+//       api.getGamesForUser()
+//         .then((result) => {
+//           console.log("Game Success Result");
+//           console.log(result);
+//         })
+//         .catch((result) => {
+//           console.log("Game Failure Result");
+//           console.log(result);
+//         });
+//
+//       return store.user;
+//     });
+// };
 
 // USER ACCOUNT ACTIONS
 const onSignUp = function (event) {
@@ -100,6 +122,7 @@ const clickedSpace = function () {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
+  // $('#sign-in').on('submit', onSignInTest); // uncomment this and comment above in order to test with onSignInTest
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('click', onSignOut);
   $('#start-new-game').on('click', startNewGame);
