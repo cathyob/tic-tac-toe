@@ -3,29 +3,34 @@
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let stillPlaying = true;
 let currentPlayer = 'X';
-let winnerCallback = function(){}; //inside function add way to show winner
-let turn = function(){};
+
+let winnerCallback = function(){}; // Called as a function when the game is drawn or has a winner
+let turn = function(){}; // Called as a function when each turn is over
 
 const setWinnerFunction = function(winner) {
-  winnerCallback = winner;
+  winnerCallback = winner; // Saves a callback we can call when the game is over
 };
 
 const setTurn = function(callback) {
-  turn = callback;
+  turn = callback; // Saves a callback we can call at the end of each turn
 };
 
 const isTileAvailable = function (index) {
+  // Checks if the game is still running and if the array index is '' (no move made there yet)
   return stillPlaying && gameBoard[index] === '';
 };
 
 const getTileValue = function (index) {
+  // Gets the current value of the tile
   return gameBoard[index];
 };
 
+// Provided function
 const allThree = function(player, cellOne, cellTwo, cellThree) {
   return (cellOne === player) && (cellTwo === player) && (cellThree === player);
 };
 
+// Provided function
 const winnerIs = function(player) {
   // ROWS BELOW
   return allThree(player, getTileValue('0'), getTileValue('1'), getTileValue('2')) ||
@@ -40,32 +45,36 @@ const winnerIs = function(player) {
          allThree(player, getTileValue('2'), getTileValue('4'), getTileValue('6'));
 };
 
+// Checks if the tile is not blank
 const checkTile = function (tile) {
     return tile !== '';
 };
 
+// Checks if the game is a draw if every element passes the checkTile method
 const isDraw = function() {
   return gameBoard.every(checkTile);
 };
 
+// Called each time a player makes a move
 const makeMove = function (index) {
-  gameBoard[index] = currentPlayer;
-  if (winnerIs(currentPlayer)) {
-    stillPlaying = false;
-    winnerCallback(currentPlayer);
-  } else if(isDraw()) {
-    stillPlaying = false;
-    winnerCallback(null);
-  } else {
+  gameBoard[index] = currentPlayer; // Make the next move in the game
+  if (winnerIs(currentPlayer)) { // Check if anyone has won the game
+    stillPlaying = false; // Used to stop input because the game is over
+    winnerCallback(currentPlayer); // Lets the winner callback run, with winning player
+  } else if(isDraw()) { // Check if the game is a draw
+    stillPlaying = false; // Used to stop input because the game is over
+    winnerCallback(null); // Lets the winning callback run, with no winning player
+  } else { // If no one has won, switch to the next players turn
     if (currentPlayer === 'X') {
       currentPlayer = 'O';
     } else {
       currentPlayer = 'X';
     }
-  //   turn(currentPlayer); // WHAT DID THIS DO???
+    turn(currentPlayer); // THIS LINKS TO TURN ANNOUNCEMENT
   }
 };
 
+// Provided function
 const getWinner = function() {
   if (winnerIs('X')) {
     return 'X';
@@ -76,6 +85,12 @@ const getWinner = function() {
   return null;
 };
 
+const resetBoard = function () {
+  gameBoard = ['', '', '', '', '', '', '', '', ''];
+  stillPlaying = true;
+  currentPlayer = 'X';
+};
+
 module.exports = {
   isTileAvailable,
   makeMove,
@@ -83,5 +98,6 @@ module.exports = {
   winnerIs,
   getWinner,
   setWinnerFunction,
-  setTurn
+  setTurn,
+  resetBoard
 };

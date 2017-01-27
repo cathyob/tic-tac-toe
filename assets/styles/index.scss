@@ -20,11 +20,35 @@ body {
 
 // is a plain button (e.g. sign out)
 .btn {
-  background-color: $black;
-  border: 1px solid $pink;
+  background-color: $black !important;
+  border: 1px solid $pink !important;
   border-radius: 15;
-  color: $pink;
+  color: $pink !important;
+  -webkit-transition-duration: .2s;
+  transition-duration: .2s;
 }
+
+.btn:hover {
+  background-color: $pink !important;
+  border: 1px solid $pink !important;
+  color: $black !important;
+}
+
+.btn:active {
+  background-color: $pink !important;
+  border: 1px solid $pink  !important;
+  color: $black  !important;
+}
+
+// .btn:focus,
+// .btn-default:focus {
+//   background-color: $pink !important;
+//   border: 1px solid $pink  !important;
+//   color: $black  !important;
+// }
+// .container-fluid {
+//   align: center;
+// }
 
 // background top and bottom of button dropdowns
 .dropdown-menu {

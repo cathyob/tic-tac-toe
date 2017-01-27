@@ -23,24 +23,16 @@ const signInSuccess = (data) => {
   $("#change-password-form").removeClass('hidden');
   $("#sign-out").removeClass('hidden');
   // hides waiting image once logged in
-  $("#turn-or-winner").removeClass('hidden');
-  // displays turn/winner and game if sign in is successfull
-  $("#game-board-display").removeClass('hidden');
   $("#waiting-for-user").addClass('hidden');
+  // displays turn/winner and game if sign in is successfull
+  $("#turn-or-winner").removeClass('hidden');
+  $("#game-board-display").removeClass('hidden');
   if (data) { console.log(data); }
 };
 
 const signInFailure = (error) => {
   // this will show the password was invalid
   $('.active-user').text("Sorry, that username or password was incorrect");
-  console.error(error);
-};
-
-const signInFailureLogged = (error) => {
-  // this removes text from input field when successfully submitted
-  $('.pass-sign-in').val("");
-  // this will show the password was invalid
-  $('.active-user').text("Sorry, " + store.user.email + " is currently logged in.");
   console.error(error);
 };
 
@@ -63,9 +55,9 @@ const changePasswordFailure = (error) => {
 
 const signUpSuccess = (data) => {
   // these two remove text from input field when successfully submitted
-  $('.email-sign-up').val("");
-  $('.password-sign-up').val("");
-  $('.password-confirmation-sign-up').val("");
+  // $('.email-sign-up').val("");
+  // $('.password-sign-up').val("");
+  // $('.password-confirmation-sign-up').val("");
   // this will show the active user name
   $('.active-user').text("Thank you for joining! You are now logged in!");
   // hide the sign-in and sign-up forms once someone is signed up
@@ -111,15 +103,24 @@ const signOutSuccess = (data) => {
 
 const gameOver = (data) => {
   if (data) {
-    $('.winner').text(data + ' won!');
+    $('.winner-announcement').text(data + ' won!');
   } else {
-    $('.winner').text('The game was a draw! Try again?');
+    $('.winner-announcement').text('The game was a draw! Try again?');
   }
+  $("#reset-button").removeClass('hidden');
 };
 // $('.email-input-up').val("");
 
 const turnChange = (data) => {
-  $('.winner').text(data + "'s turn!");
+  $('.winner-announcement').text(data + "'s turn!");
+};
+
+const deleteOldGameTiles = () => {
+  $('.tile').text('');
+};
+
+const startNewGame = () => {
+  $("#reset-button").addClass('hidden');
 };
 
 module.exports = {
@@ -127,7 +128,6 @@ module.exports = {
   success,
   signInSuccess,
   signInFailure,
-  signInFailureLogged,
   changePasswordSuccess,
   changePasswordFailure,
   signUpSuccess,
@@ -135,4 +135,6 @@ module.exports = {
   signOutSuccess,
   gameOver,
   turnChange,
+  deleteOldGameTiles,
+  startNewGame,
 };
