@@ -69,7 +69,8 @@ const signUpSuccess = (data) => {
   // reveal sign-out and change password options once someone is signed up
   $("#change-password-form").removeClass('hidden');
   $("#sign-out").removeClass('hidden');
-  // hides waiting image once logged in
+  // hides waiting image and please sign in message once logged in
+  $("#please-sign-in").addClass('hidden');
   $("#waiting-for-user").addClass('hidden');
   // displays turn/winner, game, and game history if sign in is successfull
   $("#turn-or-winner").removeClass('hidden');
