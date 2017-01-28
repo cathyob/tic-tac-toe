@@ -11,29 +11,20 @@
     <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
-  <body class="container">
+  <body class="container col-xs-12">
 
-<!-- TITLE OF WEBSITE-->
-  <div class="container game-name">
-    <div class="col-xs-12">
+<!-- TITLE OF WEBSITE AND BUTTONS-->
+  <div class="container col-xs-12 title-buttons">
+    <div class="col-xs-12 title">
       <h1>Tic-Tac-Toe</h1>
     </div>
-  </div>
 
-<!-- IS ANYONE SIGNED IN -->
-    <div class="container user-status">
-      <div class="col-xs-12 user">
-        <p class="active-user">No one is logged in :(</p>
-      </div>
-    </div>
-
-<!-- SIGN IN AND SIGN UP BUTTONS-->
-    <div class="container topbuttons" id="initial-user-options">
+    <!-- SIGN IN AND SIGN UP BUTTONS-->
+    <div class="container col-xs-12 topbuttons" id="initial-user-options">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
             Sign In
-            <span class="caret"></span>
           </button>
           <form class="dropdown-menu" id="sign-in">
             <fieldset>
@@ -56,7 +47,6 @@
         <div class="btn-group" role="group"> <!-- THIS IS SIGN UP-->
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-up-form">
               Sign Up
-              <span class="caret"></span>
             </button>
             <form class="dropdown-menu" id="sign-up">
               <fieldset>
@@ -86,13 +76,12 @@
       </div>
     </div>
 
-<!-- GAME LIST AND CHANGE PASSWORD AND SIGN OUT BUTTONS-->
-    <div class="container topbuttons hidden" id="active-user-options">
+    <!-- GAME LIST AND CHANGE PASSWORD AND SIGN OUT BUTTONS-->
+    <div class="container col-xs-12 topbuttons hidden" id="active-user-options">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS A GAME LIST OF ACTIVE AND DONE GAMES-->
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
               Game List
-              <span class="caret"></span>
             </button>
             <div class="dropdown-menu history" id="game-history-list">
               <!-- THIS WILL SHOW PAST GAMES IF ANY-->
@@ -101,7 +90,6 @@
         <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
               Change Password
-              <span class="caret"></span>
             </button>
             <form class="dropdown-menu" id="change-password">
               <fieldset>
@@ -127,23 +115,33 @@
       </div>
     </div>
 
+  </div>
+<!-- END TITLE OF WEBSITE AND BUTTONS-->
+
+<!-- IS ANYONE SIGNED IN -->
+    <div class="container col-xs-12 hidden" id="user-status">
+      <div class="col-xs-12 user">
+        <p class="active-user"></p>
+      </div>
+    </div>
+
 <!--  PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
-    <div class="container" id="waiting-for-sign-in">
+    <div class="container col-xs-12" id="waiting-for-sign-in">
       <!--  PLEASE SIGN IN MESSAGE-->
-      <div class="please" id="please-sign-in">
+      <div class="please col-xs-12" id="please-sign-in">
         <div class="col-xs-12">
           <p>Please sign up if you don't have an account already! Then sign in to play the game! </p>
         </div>
       </div>
       <!-- WAITING FOR USER IMAGE-->
-      <div class="image" id="waiting-for-user">
-        <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
+      <div class="image col-xs-12" id="waiting-for-user">
+        <img src="assets/XsAndOs.svg" alt="Xs and Os image" class="closed">
       </div>
     </div>
 <!--  END PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
 
 <!--  TURN OR WINNER AND TIC TAC TOE BOARD-->
-    <div class="container hidden" id="user-is-playing">
+    <div class="container col-xs-12 hidden" id="user-is-playing">
       <!--  TURN OR WINNER-->
       <div class="turn" id="turn-or-winner">
         <p class="winner-announcement"></p>
@@ -166,15 +164,16 @@
            <div class="col-xs-4 tile" data-id=8></div>
          </div>
        </div>
+      <div class="container col-xs-12 start-new-button"> <!-- THIS IS START NEW GAME-->
+        <div class="btn-group hidden" role="group" id="reset-button"> <!-- THIS IS START NEW GAME-->
+          <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
+        </div>
+      </div>
      </div>
 <!--  END TURN OR WINNER AND TIC TAC TOE BOARD-->
 
 <!-- GAME RESET BUTTON HERE-->
-    <div class="container-fluid"> <!-- THIS IS START NEW GAME-->
-       <div class="btn-group hidden" role="group" id="reset-button"> <!-- THIS IS START NEW GAME-->
-         <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
-       </div>
-     </div>
+<!-- END GAME RESET BUTTON HERE-->
 
   </body>
 </html>

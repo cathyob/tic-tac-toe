@@ -1,44 +1,48 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$pink: #da0084;
+$white: #fff; // background / title text
+$dk-cyan: #00838f; // title background
+$lt-cyan: #e0f7fa; // button dropdowns
+$a-orange: #ff9e80; // highlight buttons and tile markers
 $black: #000;
-$white: #fff;
 
-$blue: #2196f3;
-$yellow: #ffeb3b;
+$board-weight: 3px;
+$padding: 8px;
 
 .active-user {
-  color: $pink;
+  color: $dk-cyan;
   margin: 0;
 }
 
 body {
-  background-color: $black;
-  color: $pink;
+  background-color: $white;
+  color: $dk-cyan;
+  margin: 0 !important;
+  padding: 0 !important;
   text-align: center;
 }
 
 // is a plain button (e.g. sign out)
 .btn {
-  background-color: $black !important;
-  border: 1px solid $pink !important;
+  background-color: $dk-cyan !important;
+  border: 1px solid $white !important;
   border-radius: 15;
-  color: $pink !important;
+  color: $white !important;
   -webkit-transition-duration: .2s;
   transition-duration: .2s;
 }
 
 .btn:hover {
-  background-color: $pink !important;
-  border: 1px solid $pink !important;
-  color: $black !important;
+  background-color: $a-orange !important;
+  border: 1px solid $white !important;
+  color: $white !important;
 }
 
 .btn:active {
-  background-color: $pink !important;
-  border: 1px solid $pink  !important;
-  color: $black  !important;
+  background-color: $a-orange !important;
+  border: 1px solid $white  !important;
+  color: $white  !important;
 }
 
 // .btn:focus,
@@ -58,10 +62,19 @@ body {
 //   padding-right: 0;
 //  }
 
+.closed {
+  max-width: 300px;
+}
+
+// text inside submit buttons in drop down menus
+.close-dropdown {
+  font-weight: bold;
+}
+
 // background top and bottom of button dropdowns
 .dropdown-menu {
-  background-color: $black;
-  color: $pink;
+  background-color: $lt-cyan;
+  color: $dk-cyan;
 }
 
 // form {
@@ -70,17 +83,13 @@ body {
 
 // is the dropdown part of the button
 fieldset {
-  background-color: $black;
-  color: $pink;
+  background-color: $lt-cyan;
+  color: $dk-cyan;
 }
 
-.closed {
-  max-width: 300px;
-}
-
-// this is the
+// this is the game board
 .game {
-  background: $black;
+  background: $white;
   display: block;
   height: 300px;
   margin-left: auto;
@@ -96,17 +105,17 @@ fieldset {
     width: 300px;
 
     .top-bot-mid {
-      border-left: 1px solid $pink;
-      border-right: 1px solid $pink;
+      border-left: $board-weight solid $dk-cyan;
+      border-right: $board-weight solid $dk-cyan;
     }
 
     .mid-side {
-      border-bottom: 1px solid $pink;
-      border-top: 1px solid $pink;
+      border-bottom: $board-weight solid $dk-cyan;
+      border-top: $board-weight solid $dk-cyan;
   }
 
     .mid-mid {
-      border: 1px solid $pink;
+      border: $board-weight solid $dk-cyan;
     }
 
     .col-xs-4 {
@@ -124,9 +133,9 @@ fieldset {
 
 // is the actual button (not the dropdown part)
 .dropdown-toggle {
-  background-color: $black;
-  border: 1px solid $pink;
-  color: $pink;
+  background-color: $a-orange;
+  border: 1px solid $white;
+  color: $white;
 }
 
 // sets height of the active-user message
@@ -157,16 +166,10 @@ fieldset {
 
 // is the input text fields and buttons (e.g. email, password, "sign in" button inside dropdown menu)
 input {
-  background-color: $black;
-  border: 1px solid $pink;
-  color: $pink;
+  background-color: $lt-cyan;
+  border: 1px solid $dk-cyan;
+  color: $dk-cyan;
   float: right;
-  // padding-right: 25px;
-}
-
-legend {
-  font-size: 18px;
-  padding: 5px;
 }
 
 // sets height of the please-sign-in message
@@ -182,6 +185,25 @@ legend {
     text-align: center;
     vertical-align: middle;
   }
+}
+
+.start-new-button {
+  padding-top: $padding;
+}
+
+// tic-tac-toe title
+.title {
+  h1 {
+    border: 0 !important;
+    height: 40px;
+    padding-bottom: $padding;
+  }
+}
+
+.title-buttons {
+  background-color: $dk-cyan;
+  color: $white;
+  padding-bottom: $padding;
 }
 
 // sets height of the turn-or-winner message

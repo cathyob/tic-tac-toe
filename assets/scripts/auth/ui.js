@@ -19,8 +19,9 @@ const signInSuccess = (data) => {
   $('.active-user').text(store.user.email + " is logged in!");
   // hide the sign-in and sign-up forms once someone is logged in
   $('#initial-user-options').hide();
-  // reveal the sign-out, change password and game list options once someone is logged in
+  // reveal the sign-out, change password, game list options, and who is logged in once someone is logged in
   $("#active-user-options").removeClass('hidden');
+  $("#user-status").removeClass('hidden');
   // hides waiting image and please sign in message once logged in
   $("#waiting-for-sign-in").addClass('hidden');
   // displays turn/winner and game if sign in is successfull
@@ -80,8 +81,9 @@ const signOutSuccess = (data) => {
   $('.active-user').text("No one is logged in :(");
   // reveal the sign-in and sign-up options once signed out
   $('#initial-user-options').show();
-  // hide game history, sign-out, and change password once logged out
+  // hid the sign-out, change password, game list options, and who is logged in once user is
   $("#active-user-options").addClass('hidden');
+  $("#user-status").addClass('hidden');
   // reveals please sign in message and waiting image once signed out
   $("#waiting-for-sign-in").removeClass('hidden');
   // hides turn/winner and game if sign out is successfull
