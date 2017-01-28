@@ -199,17 +199,19 @@ input:focus {
 // sets height of the please-sign-in message
 .please {
   font-family: 'Roboto', sans-serif;
-  height: 30px;
-  line-height: 30px;
+  // height: 30px;
+  // line-height: 30px;
   text-align: center;
   vertical-align: middle;
+  padding-top: $padding;
 
   div {
     font-family: 'Roboto', sans-serif;
-    height: 30px;
-    line-height: 30px;
+    // height: 30px;
+    // line-height: 30px;
     text-align: center;
     vertical-align: middle;
+    // padding-bottom: $padding;
   }
 }
 
@@ -236,32 +238,34 @@ input:focus {
 // sets height of the turn-or-winner message
 .turn {
   font-family: 'Roboto', sans-serif;
-  height: 30px;
-  line-height: 30px;
+  // height: 30px;
+  // line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
   div {
     font-family: 'Roboto', sans-serif;
-    height: 30px;
-    line-height: 30px;
+    // height: 30px;
+    // line-height: 30px;
     text-align: center;
     vertical-align: middle;
+    padding-top: $padding;
   }
 }
 
 // sets height of the active-user message
-.user-status {
+#user-status {
   font-family: 'Roboto', sans-serif;
-  height: 30px;
-  line-height: 30px;
+  // height: 30px;
+  // line-height: 30px;
   text-align: center;
   vertical-align: middle;
+  padding-top: $padding;
 
   div {
     font-family: 'Roboto', sans-serif;
-    height: 30px;
-    line-height: 30px;
+    // height: 30px;
+    // line-height: 30px;
     text-align: center;
     vertical-align: middle;
   }
