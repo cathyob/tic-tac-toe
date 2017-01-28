@@ -115,10 +115,11 @@ const clickedSpace = function () {
   let id = this.getAttribute('data-id'); // gets the data-id off the gameboard div
   if (board.isTileAvailable(id)) { // checks if div is available or already marked
     board.makeMove(id); // if available makes move onto the data id in the div
-    if (board.firstMoveMade === false) { // if the game's first move has not been made do this
-      board.firstMoveMade = true; // now that first move is made, firstMoveMade is now true
+    if (board.isFirstMoveMade() === false) { // if the game's first move has not been made do this
+      board.isFirstMoveMade(true); // now that first move is made, isFirstMoveMade is now true
       api.createGamesForUser() // creates new board for the user after the first move
       .then((response) => {
+        console.log("response");
         board.id = response.game.id; // board is valid, saves the id number of the game
         console.log(response); // see console to see new game id number
         updateGame(board, id); // now that game is created so update the move

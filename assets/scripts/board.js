@@ -59,7 +59,7 @@ const isDraw = function() {
 // Called each time a player makes a move
 const makeMove = function (index) {
   gameBoard[index] = currentPlayer; // Make the next move in the game
-
+  console.log(firstMoveMade);
   if (winnerIs(currentPlayer)) { // Check if anyone has won the game
     stillPlaying = false; // Used to stop input because the game is over
     winnerCallback(currentPlayer); // Lets the winner callback run, with winning player
@@ -102,6 +102,14 @@ const stillPlayingGame = function() {
   return stillPlaying; // created because variable wasn't exporting correctly
 };
 
+const isFirstMoveMade = function(moveMade) { // made becase variable not being exported correctly
+  if(moveMade !== undefined) { // if moveMade was sent...
+    firstMoveMade = moveMade; // update the move
+  }
+
+  return firstMoveMade;
+};
+
 const determineWinner = function(game) {
   gameBoard = game.cells; // the empty gameBoard is replaced with the game on the server's
   game.winner = getWinner(); // get the winner from the game on the server
@@ -117,7 +125,7 @@ module.exports = {
   setWinnerFunction,
   setTurn,
   resetBoard,
-  firstMoveMade,
+  isFirstMoveMade,
   id,
   setUpBoardForGame,
   determineWinner,
