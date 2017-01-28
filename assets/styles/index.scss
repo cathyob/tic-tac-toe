@@ -18,6 +18,7 @@ $padding: 8px;
 body {
   background-color: $white;
   color: $dk-cyan;
+  font-family: 'Roboto', sans-serif;
   margin: 0 !important;
   padding: 0 !important;
   text-align: center;
@@ -25,6 +26,7 @@ body {
 
 // is a plain button (e.g. sign out)
 .btn {
+  font-family: 'Roboto', sans-serif;
   background-color: $dk-cyan !important;
   border: 1px solid $white !important;
   border-radius: 15;
@@ -68,18 +70,27 @@ body {
 
 // text inside submit buttons in drop down menus
 .close-dropdown {
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+// changes colors of buttons inside dropdowns
+.close-dropdown:hover {
+  background-color: $a-orange;
+  color: $white;
+}
+
+// removes the outline when buttons inside dropdowns are clicked
+.close-dropdown:focus {
+  outline: none !important;
 }
 
 // background top and bottom of button dropdowns
 .dropdown-menu {
+  font-family: 'Roboto', sans-serif;
   background-color: $lt-cyan;
   color: $dk-cyan;
 }
-
-// form {
-//   background-color: $pink;
-// }
 
 // is the dropdown part of the button
 fieldset {
@@ -121,6 +132,9 @@ fieldset {
     .col-xs-4 {
       display: block;
       font-size: 40px;
+      color: $a-orange;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
       height: 100px;
       line-height: 100px;
       padding: 0;
@@ -133,6 +147,7 @@ fieldset {
 
 // is the actual button (not the dropdown part)
 .dropdown-toggle {
+  font-family: 'Roboto', sans-serif;
   background-color: $a-orange;
   border: 1px solid $white;
   color: $white;
@@ -140,12 +155,14 @@ fieldset {
 
 // sets height of the active-user message
 .game-board {
+  font-family: 'Roboto', sans-serif;
   height: 75px;
   line-height: 75px;
   text-align: center;
   vertical-align: middle;
 
   div {
+    font-family: 'Roboto', sans-serif;
     height: 75px;
     line-height: 75px;
     text-align: center;
@@ -154,32 +171,41 @@ fieldset {
 }
 
 .history {
-  width: 300px;
+  width: 200px;
 };
 
 .input {
   // below changes the label bg color but not font color?
   // background-color: $black;
   // color: $pink;
+  font-family: 'Roboto', sans-serif;
   width: 200px;
 }
 
 // is the input text fields and buttons (e.g. email, password, "sign in" button inside dropdown menu)
 input {
+  font-family: 'Roboto', sans-serif;
   background-color: $lt-cyan;
   border: 1px solid $dk-cyan;
   color: $dk-cyan;
   float: right;
 }
 
+// changes color of outline when inside text fields in dropdown menus
+input:focus {
+  outline-color: $a-orange;
+}
+
 // sets height of the please-sign-in message
 .please {
+  font-family: 'Roboto', sans-serif;
   height: 30px;
   line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
   div {
+    font-family: 'Roboto', sans-serif;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -194,6 +220,7 @@ input {
 // tic-tac-toe title
 .title {
   h1 {
+    font-family: 'Roboto', sans-serif;
     border: 0 !important;
     height: 40px;
     padding-bottom: $padding;
@@ -201,6 +228,7 @@ input {
 }
 
 .title-buttons {
+  font-family: 'Roboto', sans-serif;
   background-color: $dk-cyan;
   color: $white;
   padding-bottom: $padding;
@@ -208,12 +236,14 @@ input {
 
 // sets height of the turn-or-winner message
 .turn {
+  font-family: 'Roboto', sans-serif;
   height: 30px;
   line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
   div {
+    font-family: 'Roboto', sans-serif;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -223,12 +253,14 @@ input {
 
 // sets height of the active-user message
 .user-status {
+  font-family: 'Roboto', sans-serif;
   height: 30px;
   line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
   div {
+    font-family: 'Roboto', sans-serif;
     height: 30px;
     line-height: 30px;
     text-align: center;
