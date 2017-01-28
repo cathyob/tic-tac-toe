@@ -31,6 +31,7 @@ const signInSuccess = (data) => {
 
 const signInFailure = (error) => {
   // this will show the password was invalid
+  $("#user-status").removeClass('hidden');
   $('.active-user').text("Sorry, that username or password was incorrect");
   console.error(error);
 };
@@ -58,6 +59,7 @@ const signUpSuccess = (data) => {
   $('.password-sign-up').val("");
   $('.password-confirmation-sign-up').val("");
   // this will confirm their sign up was sucessful
+  $("#user-status").removeClass('hidden');
   $('.active-user').text("Thank you for joining! Please log in to start playing");
   // hide the sign-in and sign-up forms once someone is signed up
 
@@ -72,6 +74,7 @@ const signUpFailure = (error) => {
   $('.password-sign-up').val("");
   $('.password-confirmation-sign-up').val("");
   // this will show the password was invalid
+  $("#user-status").removeClass('hidden');
   $('.active-user').text("Sorry, that username has been used or your passwords did not match.");
   console.error(error);
 };
