@@ -28,7 +28,7 @@
     </div>
 
 <!-- SIGN IN AND SIGN UP BUTTONS-->
-    <div class="container topbuttons">
+    <div class="container topbuttons" id="initial-user-options">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
@@ -87,10 +87,10 @@
     </div>
 
 <!-- GAME LIST AND CHANGE PASSWORD AND SIGN OUT BUTTONS-->
-    <div class="container topbuttons">
+    <div class="container topbuttons hidden" id="active-user-options">
       <div class="btn-group" role="group">
         <div class="btn-group" role="group"> <!-- THIS IS A GAME LIST OF ACTIVE AND DONE GAMES-->
-            <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
               Game List
               <span class="caret"></span>
             </button>
@@ -99,7 +99,7 @@
             </div>
           </div>
         <div class="btn-group" role="group"> <!-- THIS IS CHANGE PASSWORD-->
-            <button type="button" class="btn btn-default dropdown-toggle hidden" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
               Change Password
               <span class="caret"></span>
             </button>
@@ -122,7 +122,7 @@
             </form>
           </div>
         <div class="btn-group" role="group"> <!-- THIS IS SIGN OUT-->
-          <button class="btn btn-default hidden" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
+          <button class="btn btn-default" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
         </div>
       </div>
     </div>
