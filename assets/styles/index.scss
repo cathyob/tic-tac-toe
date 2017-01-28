@@ -5,7 +5,7 @@ $white: #fff; // background / title text
 $dk-cyan: #00838f; // title background
 $lt-cyan: #e0f7fa; // button dropdowns
 $a-orange: #ff9e80; // highlight buttons and tile markers
-$black: #000;
+$dk-grey: #ccc;
 
 $board-weight: 3px;
 $padding: 8px;
@@ -217,20 +217,19 @@ input:focus {
   padding-top: $padding;
 }
 
-// tic-tac-toe title
-.title {
-  h1 {
-    font-family: 'Roboto', sans-serif;
-    border: 0 !important;
-    height: 40px;
-    padding-bottom: $padding;
-  }
-}
-
 .title-buttons {
   font-family: 'Roboto', sans-serif;
   background-color: $dk-cyan;
   color: $white;
+  padding-bottom: $padding;
+  -webkit-box-shadow: 0 4px 4px -2px $dk-grey;
+  -moz-box-shadow: 0 4px 4px -2px $dk-grey;
+  box-shadow: 0 4px 4px -2px $dk-grey;
+}
+
+.title-img {
+  max-width: 300px !important;
+  padding-top: $padding;
   padding-bottom: $padding;
 }
 
