@@ -25,11 +25,9 @@ const signInSuccess = (data) => {
   $("#sign-out").removeClass('hidden');
   $("#game-history-button").removeClass('hidden');
   // hides waiting image and please sign in message once logged in
-  $("#waiting-for-user").addClass('hidden');
-  $("#please-sign-in").addClass('hidden');
+  $("#waiting-for-sign-in").addClass('hidden');
   // displays turn/winner and game if sign in is successfull
-  $("#turn-or-winner").removeClass('hidden');
-  $("#game-board-display").removeClass('hidden');
+  $("#user-is-playing").removeClass('hidden');
   if (data) { console.log(data); }
 };
 
@@ -64,7 +62,9 @@ const signUpSuccess = (data) => {
   // this will confirm their sign up was sucessful
   $('.active-user').text("Thank you for joining! Please log in to start playing");
   // hide the sign-in and sign-up forms once someone is signed up
-  // $('#sign-up-form').hide(); // choosing not to hide the sign up form so user can make another log in if needed
+
+  // choosing NOT to hide the sign up form so user can make another account
+
   if (data) { console.log(data); }
 };
 
@@ -84,16 +84,14 @@ const signOutSuccess = (data) => {
   // reveal the sign-in and sign-up options once signed out
   $('#sign-in-form').show();
   $('#sign-up-form').show();
-  // hide sign-out and change password once logged out
+  // hide game history, sign-out, and change password once logged out
+  $("#game-history-button").addClass('hidden');
   $("#change-password-form").addClass('hidden');
   $("#sign-out").addClass('hidden');
   // reveals please sign in message and waiting image once signed out
-  $("#please-sign-in").addClass('hidden');
-  $("#waiting-for-user").removeClass('hidden');
-  // hides turn/winner, game, and game history if sign out is successfull
-  $("#turn-or-winner").addClass('hidden');
-  $("#game-board-display").addClass('hidden');
-  $("#game-history-button").addClass('hidden');
+  $("#waiting-for-sign-in").removeClass('hidden');
+  // hides turn/winner and game if sign out is successfull
+  $("#user-is-playing").addClass('hidden');
   // removes hidden class and adds back so we don't end up with two hidden classes on reset if signed out before reset game is clicked
   $("#reset-button").removeClass('hidden');
   $("#reset-button").addClass('hidden');

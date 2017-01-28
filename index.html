@@ -127,41 +127,47 @@
       </div>
     </div>
 
-<!--  PLEASE SIGN IN MESSAGE-->
-    <div class="container please" id="please-sign-in">
-      <div class="col-xs-12">
-        <p>Please sign up if you don't have an account already! Then sign in to play the game! </p>
+<!--  PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
+    <div class="container" id="waiting-for-sign-in">
+      <!--  PLEASE SIGN IN MESSAGE-->
+      <div class="please" id="please-sign-in">
+        <div class="col-xs-12">
+          <p>Please sign up if you don't have an account already! Then sign in to play the game! </p>
+        </div>
+      </div>
+      <!-- WAITING FOR USER IMAGE-->
+      <div class="image" id="waiting-for-user">
+        <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
       </div>
     </div>
+<!--  END PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
 
-<!--  TURN OR WINNER-->
-    <div class="container turn hidden" id="turn-or-winner">
-      <p class="winner-announcement"></p>
-    </div>
-
-<!-- WAITING FOR USER IMAGE-->
-    <div class="container image" id="waiting-for-user">
-      <img src="http://il2.picdn.net/shutterstock/videos/3141991/thumb/1.jpg" alt="Neon Closed Sign" class="closed">
-    </div>
-
-<!--  TIC TAC TOE BOARD-->
-    <div class="container game hidden" id="game-board-display">
-      <div class="col-xs-12 row">
-         <div class="col-xs-4 tile" data-id=0></div>
-         <div class="col-xs-4 top-bot-mid tile" data-id=1></div>
-         <div class="col-xs-4 tile" data-id=2></div>
-       </div>
-       <div class="col-xs-12 row">
-         <div class="col-xs-4 mid-side tile" data-id=3> </div>
-         <div class="col-xs-4 mid-mid tile" data-id=4></div>
-         <div class="col-xs-4 mid-side tile" data-id=5></div>
-       </div>
-       <div class="col-xs-12 row">
-         <div class="col-xs-4 tile" data-id=6></div>
-         <div class="col-xs-4 top-bot-mid tile" data-id=7></div>
-         <div class="col-xs-4 tile" data-id=8></div>
+<!--  TURN OR WINNER AND TIC TAC TOE BOARD-->
+    <div class="container hidden" id="user-is-playing">
+      <!--  TURN OR WINNER-->
+      <div class="turn" id="turn-or-winner">
+        <p class="winner-announcement"></p>
+      </div>
+      <!--  TIC TAC TOE BOARD-->
+      <div class="game" id="game-board-display">
+        <div class="col-xs-12 row">
+           <div class="col-xs-4 tile" data-id=0></div>
+           <div class="col-xs-4 top-bot-mid tile" data-id=1></div>
+           <div class="col-xs-4 tile" data-id=2></div>
+         </div>
+         <div class="col-xs-12 row">
+           <div class="col-xs-4 mid-side tile" data-id=3> </div>
+           <div class="col-xs-4 mid-mid tile" data-id=4></div>
+           <div class="col-xs-4 mid-side tile" data-id=5></div>
+         </div>
+         <div class="col-xs-12 row">
+           <div class="col-xs-4 tile" data-id=6></div>
+           <div class="col-xs-4 top-bot-mid tile" data-id=7></div>
+           <div class="col-xs-4 tile" data-id=8></div>
+         </div>
        </div>
      </div>
+<!--  END TURN OR WINNER AND TIC TAC TOE BOARD-->
 
 <!-- GAME RESET BUTTON HERE-->
     <div class="container-fluid"> <!-- THIS IS START NEW GAME-->
