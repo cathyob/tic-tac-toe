@@ -13,115 +13,22 @@ board.setWinnerFunction(ui.gameOver); // When game is over call the gameOver fun
 board.setTurn(ui.turnChange); // When a turn is over call turnChange function for the ui
 ui.turnChange('X'); // Let the UI know that 'X' is the starting player
 
-// TODO
-// TODO ADD WAY TO DISPLAY ACTIVE GAME IDs SO USER CAN SELECT TO UP ANY UNCOMPLETE GAME
-// TODO fix empty div above game history/change password, sign out buttongs (reduce hides to just the containing div?)
-// TODO create storage for past games
-// TODO ASK INSTRUCTOR - ok to use "username" text prompt because server doesn't allow replacing username credentials?
-// TODO
-
-// CHECK TO SEE GAMES
-// const getGames = function () {
-//   event.preventDefault();
-//   api.getGamseForUser()
-//   .then((response) => {
-//   store.games = response.games;
-//   let g = []; // empty array to hold all games that are over
-//   for (let i = 0, max = store.games.length; i < max; i++) {
-//     if (store.games[i].over === false) { // only show games that are over
-//       g.push(store.games[i].id); // pushing those into the empty array
-//     }
-//
-//     // if ($('#temp')) {
-//     //   $('#temp').remove();
-//     // }
-//     if (g[0] === undefined) {
-//       $('#game-history-list').text("You haven't played any games yet. Better get started!");
-//     }
-//   }
-// }
-//   .then(ui.success)
-//   .catch(ui.failure)
-// );
-// };
-
-// USER ACCOUNT ACTIONS
-// const onSignIn = function (event) {
-//   event.preventDefault();
-//
-//   let data = getFormFields(event.target);
-//
-//   // if (store.user !== null) {
-//   //   ui.signInFailureLogged();
-//   // } else {
-//   api.signIn(data)
-//     .then((response) => {
-//       store.user = response.user;
-//       return store.user;
-//     })
-//     .then(ui.signInSuccess)
-//     .then(() => {
-//       console.log(store);
-//     })
-//     .catch(ui.signInFailure);
-//   // }
-// };
-
-// const onSignIn = function (event) {
-//   event.preventDefault();
-//   let data = getFormFields(event.target);
-//   // if (store.user !== null) {
-//   //   ui.signInFailureLogged();
-//   // } else {
-//   api.signIn(data)
-//     .then((response) => {
-//       store.user = response.user;
-//       return store.user;
-//     })
-//      .then(() => {
-//       api.getGamesForUser().then((gamesResponse) => {
-//         console.log('Response is '); // TESTING
-//         console.log(gamesResponse); // TESTING
-//       // let currentGame = null;
-//       let pastGames = [];
-//       // store.games = gamesResponse.games;
-//       // store.games.forEach((game) => {
-//         //  if(game.over === false && (currentGame === null)) {
-//         //    currentGame = game;
-//         //  } else if(game.over === true) {
-//         //     pastGames.push(game);
-//         //  } else {
-//         //     // We have another open game, and this is bad, handle it somehow
-//         // }
-//       store.games = gamesResponse.games;
-//       store.games.forEach((game) => {
-//          pastGames.push(game);
-//        });
-//       // ui.setCurrentGame(currentGame); // this method would take the current game object and setup the game on the screen / board model
-//       // ui.setGameHistory(pastGames); // this method passes an array of all the past games to teh UI to use in the game history section
-//       }
-//     );
-//   })
-//     .then(ui.signInSuccess)
-//     .then(() => {
-//       console.log(store);
-//     })
-//     .catch(ui.signInFailure);
-//   // }
-// };
-
 const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
 
   api.signIn(data)
     .then((response) => {
-      store.user = response.user;
-      return store.user;
+      store.user = response.user; // user that is logged in is now saved
     })
     .then(() => {
-      api.getGamesForUser().then((gamesResponse) => {
-       store.games = gamesResponse.games;
+      api.getGamesForUser().then((gamesResponse) => { // gets all games saved to that user
+       store.games = gamesResponse.games; // this saves the games to use later
+
+       store.games.forEach((game) => { // will go through each past game and determine the winner if any
+         board.determineWinner(game);
+       });
+
        ui.setGameHistory(gamesResponse.games); // this method passes an array of all the past games to the UI to use in the game history section
       });
     })
@@ -156,10 +63,28 @@ const onChangePassword = function (event) {
 };
 
 const startNewGame = function () {
-  ui.turnChange('X'); // Let the UI know that 'X' is the starting player
-  board.resetBoard();
-  ui.deleteOldGameTiles();
-  ui.startNewGame();
+  if(store.user !== undefined) { // checks if we have a user to get games for before moving on
+      // reusing part of onSignIn in order to update the game history when the start new game button is clicked
+    api.getGamesForUser().then((gamesResponse) => { // gets all games saved to that user
+     store.games = gamesResponse.games; // this saves the games to use later
+
+     store.games.forEach((game) => { // will go through each past game and determine the winner if any
+       board.determineWinner(game);
+     });
+
+     ui.setGameHistory(gamesResponse.games); // this method passes an array of all the past games to the UI to use in the game history section
+
+     ui.turnChange('X'); // Let the UI know that 'X' is the starting player
+     board.resetBoard();
+     ui.deleteOldGameTiles();
+     ui.startNewGame();
+    });
+  } else {
+    ui.turnChange('X'); // Let the UI know that 'X' is the starting player
+    board.resetBoard();
+    ui.deleteOldGameTiles();
+    ui.startNewGame();
+  }
 };
 
 // USER ACCOUNT ACTIONS
@@ -177,41 +102,38 @@ const onSignOut = function (event) {
     ;
 };
 
-// CLICKING ACTION
-const clickedSpace = function () {
-  let id = this.getAttribute('data-id');
-  if (board.isTileAvailable(id)) {
-    board.makeMove(id);
-    $(this).text(board.getTileValue(id));
-  }
+// UPDATE GAME ON SERVER
+const updateGame = function (board, index) { // split code into 2nd function to make easier to read
+  api.saveGamesForUser(board.id, index, board.getTileValue(index), !board.stillPlayingGame()) // since game is now saved, we can now update the game id with the move on the tile (index), using the player's mark (index), but only if the game is not over
+  .then((response) => {
+    console.log(response); // see console log and array will show the last move change
+  });
 };
 
-// const onSignInTest = function(event) { // This whole method can be deleted when APIs work
-//   event.preventDefault();
-//
-//   let data = getFormFields(event.target);
-//
-//   api.signIn(data)
-//     .then((response) => {
-//       store.user = response.user;
-//       api.createGamesForUser()
-//         .then((result) => {
-//           console.log("Game Success Result");
-//           console.log(result);
-//         })
-//         .catch((result) => {
-//           console.log("Game Failure Result");
-//           console.log(result);
-//         });
-//
-//       return store.user;
-//     });
-// };
+// CLICKING ACTION
+const clickedSpace = function () {
+  let id = this.getAttribute('data-id'); // gets the data-id off the gameboard div
+  if (board.isTileAvailable(id)) { // checks if div is available or already marked
+    board.makeMove(id); // if available makes move onto the data id in the div
+    if (board.firstMoveMade === false) { // if the game's first move has not been made do this
+      board.firstMoveMade = true; // now that first move is made, firstMoveMade is now true
+      api.createGamesForUser() // creates new board for the user after the first move
+      .then((response) => {
+        board.id = response.game.id; // board is valid, saves the id number of the game
+        console.log(response); // see console to see new game id number
+        updateGame(board, id); // now that game is created so update the move
+      });
+    }
+    else {
+      updateGame(board, id); // if game already existed simply update the move
+    }
+    $(this).text(board.getTileValue(id)); // that div is now set to x or o based on the board
+  }
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
-  // $('#sign-in').on('submit', onSignInTest); // uncomment this and comment above in order to test with onSignInTest
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('click', onSignOut);
   $('#start-new-game').on('click', startNewGame);

@@ -63,9 +63,9 @@ const createGamesForUser = function () {
 };
 
 // SAVES GAMES FOR USER
-const saveGamesForUser = function (move, board) {
+const saveGamesForUser = function (boardId, move, value, gameOver) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + board.id,
+    url: config.apiOrigin + '/games/' + boardId,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -73,10 +73,10 @@ const saveGamesForUser = function (move, board) {
     data: {
       "game": {
         "cell": {
-          "index": 0,
-          "value": "X"
+          "index": move,
+          "value": value,
         },
-    "over": false
+    "over": gameOver,
   }
 }
   });

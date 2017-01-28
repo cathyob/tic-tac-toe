@@ -87,7 +87,8 @@ const signOutSuccess = (data) => {
   // hide sign-out and change password once logged out
   $("#change-password-form").addClass('hidden');
   $("#sign-out").addClass('hidden');
-  // reveals waiting image once signed out
+  // reveals please sign in message and waiting image once signed out
+  $("#please-sign-in").addClass('hidden');
   $("#waiting-for-user").removeClass('hidden');
   // hides turn/winner, game, and game history if sign out is successfull
   $("#turn-or-winner").addClass('hidden');
@@ -130,8 +131,27 @@ const setCurrentGame = (data) => {
 };
 
 const setGameHistory = (data) => {
-  $('#game-history-list').text("This is where the user's list of games will go!");
-  console.log("Any game history data?");
+  $('#game-history-list').empty(); // gets rid of any children games in the list from prior users
+  if (data.length === 0) {
+    $('#game-history-list').text("Play some games so we can store them here!");
+  } else {
+    $('#game-history-list').text("");
+    data.forEach((game) => {
+      let completed = "is in progress";
+
+      if (game.over === true) {
+        if (game.winner === null) {
+          completed = "ended in a draw";
+        } else if (game.winner === 'X') {
+          completed = "was won by X";
+        } else if (game.winner === 'O') {
+          completed = "was won by O";
+        }
+      }
+      $('#game-history-list').append("<p>Game " + game.id + " " + completed + "</p>");
+    }
+  );
+  }
   if (data) { console.log(data); }
 };
 
