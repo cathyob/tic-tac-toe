@@ -26,11 +26,11 @@ body {
 
 // is a plain button (e.g. sign out)
 .btn {
-  font-family: 'Roboto', sans-serif;
   background-color: $dk-cyan !important;
   border: 1px solid $white !important;
   border-radius: 15;
   color: $white !important;
+  font-family: 'Roboto', sans-serif;
   -webkit-transition-duration: .2s;
   transition-duration: .2s;
 }
@@ -47,23 +47,7 @@ body {
   color: $white  !important;
 }
 
-// .btn:focus,
-// .btn-default:focus {
-//   background-color: $pink !important;
-//   border: 1px solid $pink  !important;
-//   color: $black  !important;
-// }
-// .container-fluid {
-//   align: center;
-// }
-
-// .container-fluid {
-//   margin-left: auto;
-//   margin-right: auto;
-//   padding-left: 0;
-//   padding-right: 0;
-//  }
-
+//width of holding image of x's and o's on sign in/up screen
 .closed {
   max-width: 300px;
 }
@@ -85,15 +69,16 @@ body {
   outline: none !important;
 }
 
+// makes all things with this only take up width of screen
 .col-xs-12 {
   max-width: 100%;
 }
 
 // background top and bottom of button dropdowns
 .dropdown-menu {
-  font-family: 'Roboto', sans-serif;
   background-color: $lt-cyan;
   color: $dk-cyan;
+  font-family: 'Roboto', sans-serif;
 }
 
 // is the dropdown part of the button
@@ -134,10 +119,10 @@ fieldset {
     }
 
     .col-xs-4 {
-      display: block;
-      font-size: 40px;
       color: $a-orange;
+      display: block;
       font-family: 'Roboto', sans-serif;
+      font-size: 40px;
       font-weight: 900;
       height: 100px;
       line-height: 100px;
@@ -151,12 +136,13 @@ fieldset {
 
 // is the actual button (not the dropdown part)
 .dropdown-toggle {
-  font-family: 'Roboto', sans-serif;
   background-color: $a-orange;
   border: 1px solid $white;
   color: $white;
+  font-family: 'Roboto', sans-serif;
 }
 
+// adds side padding to inside of dropdown menus
 form {
   padding-left: $padding / 2 !important;
   padding-right: $padding / 2 !important;
@@ -179,33 +165,36 @@ form {
   }
 }
 
+// adds width to history list so text is on one line
 .history {
   width: 200px;
 };
 
+// limits width of images no matter how big the screen is
 img {
-  width: 100% !important;
   max-width: 450px !important;
+  width: 100% !important;
 }
 
+// affects areas within dropdown menu
 .input {
-  // below changes the label bg color but not font color?
-  // background-color: $black;
-  // color: $pink;
   font-family: 'Roboto', sans-serif;
   width: 200px;
 }
 
 // is the input text fields and buttons (e.g. email, password, "sign in" button inside dropdown menu)
 input {
-  font-family: 'Roboto', sans-serif;
   background-color: $lt-cyan;
   border: 1px solid $dk-cyan;
   color: $dk-cyan;
   float: right;
+  font-family: 'Roboto', sans-serif;
 }
 
 // changes color of outline when inside text fields in dropdown menus
+// TODO NEED TO ADD FOR SAFARI/MOZ?
+// TODO NEED TO ADD FOR SAFARI/MOZ?
+// TODO NEED TO ADD FOR SAFARI/MOZ?
 input:focus {
   outline-color: $a-orange;
 }
@@ -213,81 +202,64 @@ input:focus {
 // sets height of the please-sign-in message
 .please {
   font-family: 'Roboto', sans-serif;
-  // height: 30px;
-  // line-height: 30px;
+  padding-top: $padding;
   text-align: center;
   vertical-align: middle;
-  padding-top: $padding;
 
   div {
     font-family: 'Roboto', sans-serif;
-    // height: 30px;
-    // line-height: 30px;
     text-align: center;
     vertical-align: middle;
-    // padding-bottom: $padding;
   }
 }
 
+// reduces side padding on group of 3 buttons after sign in
 .smaller-padding-buttons {
-  padding-right: $padding / 2;
   padding-left: $padding / 2;
+  padding-right: $padding / 2;
 }
 
+// adds padding between gameboard and start new game button
 .start-new-button {
   padding-top: $padding;
 }
 
+// div containing title image and top buttons
 .title-buttons {
-  font-family: 'Roboto', sans-serif;
   background-color: $dk-cyan;
-  color: $white;
-  // padding-top: 0;
-  // padding-left: 0;
-  padding-bottom: $padding;
-  // padding-right: 0;
-  // max-width: 100%;
-  -webkit-box-shadow: 0 4px 4px -2px $dk-grey;
   -moz-box-shadow: 0 4px 4px -2px $dk-grey;
+  -webkit-box-shadow: 0 4px 4px -2px $dk-grey;
   box-shadow: 0 4px 4px -2px $dk-grey;
-}
-
-.title-img {
-  padding-top: $padding;
+  color: $white;
+  font-family: 'Roboto', sans-serif;
   padding-bottom: $padding;
 }
 
-// sets height of the turn-or-winner message
+// adds empty space above/below title image
+.title-img {
+  padding-bottom: $padding;
+  padding-top: $padding;
+}
+
+// turn-or-winner message
 .turn {
-  font-family: 'Roboto', sans-serif;
-  // height: 30px;
-  // line-height: 30px;
   text-align: center;
   vertical-align: middle;
 
   div {
-    font-family: 'Roboto', sans-serif;
-    // height: 30px;
-    // line-height: 30px;
+    padding-top: $padding;
     text-align: center;
     vertical-align: middle;
-    padding-top: $padding;
   }
 }
 
 // sets height of the active-user message
 .user-status {
-  font-family: 'Roboto', sans-serif;
-  // height: 30px;
-  // line-height: 30px;
+  padding-top: $padding;
   text-align: center;
   vertical-align: middle;
-  padding-top: $padding;
 
   div {
-    font-family: 'Roboto', sans-serif;
-    // height: 30px;
-    // line-height: 30px;
     text-align: center;
     vertical-align: middle;
   }
