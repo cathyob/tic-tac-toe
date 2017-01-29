@@ -52,6 +52,7 @@ const onSignUp = function (event) {
 
 // USER ACCOUNT ACTIONS
 const onChangePassword = function (event) {
+  console.log("change password")
   event.preventDefault();
 
   let data = getFormFields(event.target);
@@ -140,8 +141,8 @@ const addHandlers = () => {
   $('#start-new-game').on('click', startNewGame);
   $('.tile').on('click', clickedSpace);
   $(".close-dropdown").click(function() {
-   $(".dropdown-toggle").dropdown("toggle");
-});
+    $(".dropdown-toggle").dropdown("toggle");
+ });
 };
 
 module.exports = {

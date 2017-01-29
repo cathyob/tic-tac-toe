@@ -61,9 +61,10 @@ const signUpSuccess = (data) => {
   // this will confirm their sign up was sucessful
   $("#user-status").removeClass('hidden');
   $('.active-user').text("Thank you for joining! Please log in to start playing");
-  // hide the sign-in and sign-up forms once someone is signed up
 
-  // choosing NOT to hide the sign up form so user can make another account
+  // $(".change-password").click(function() {
+  //  $(".dropdown-toggle").dropdown("toggle");
+  // // choosing NOT to hide the sign up form so user can make another account
 
   if (data) { console.log(data); }
 };
