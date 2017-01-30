@@ -8,11 +8,7 @@ const ui = require('./ui');
 const store = require('../store');
 const board = require('../board');
 
-// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
-// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
-// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
-// TODO remove standard ui.failure and replace?
-// TODO restore game lsit?
+// TODO restore game list?
 
 // Setup the board so we can start playing
 board.setWinnerFunction(ui.gameOver); // When game is over call the gameOver function for the ui
@@ -100,8 +96,7 @@ const onSignOut = function (event) {
       return store;
     })
     .then(ui.signOutSuccess)
-    .catch(ui.failure)
-    ;
+    .catch(ui.signOutFailure);
 };
 
 // UPDATE GAME ON SERVER

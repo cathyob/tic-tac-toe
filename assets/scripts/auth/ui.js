@@ -3,10 +3,6 @@
 const store = require('../store');
 const board = require('../board');
 
-const failure = (error) => {
-  // console.error(error);
-};
-
 const signInSuccess = (data) => {
   // these two remove text from input field when successfully submitted
   $('.email-sign-in').val("");
@@ -83,6 +79,11 @@ const signOutSuccess = (data) => {
   $("#reset-button").addClass('hidden');
 };
 
+const signOutFailure = (error) => {
+  // this will show the sign out didn't work
+  $('.active-user').text("Sorry that sign out failed, please try again.");
+};
+
 const gameOver = (data) => {
   if (data) {
     $('.winner-announcement').text(data + ' won!');
@@ -136,7 +137,6 @@ const setGameHistory = (data) => {
 };
 
 module.exports = {
-  failure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
@@ -144,6 +144,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   signOutSuccess,
+  signOutFailure,
   gameOver,
   turnChange,
   deleteOldGameTiles,
