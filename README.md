@@ -13,7 +13,7 @@ Ideally, there are a few design items that can be polished and user game history
 
 ## Wireframes
 My initial design was:
-![alt text](wireframe.jpg "wireframe")
+![alt text](https://github.com/cathyob/game-project-scope-study/blob/response/wireframe.jpg?raw=true "wireframe")
 
 ## User-stories
 My first breakdown of what this game needed to work included:
