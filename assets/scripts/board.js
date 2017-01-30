@@ -94,7 +94,24 @@ const resetBoard = function () {
 };
 
 const setUpBoardForGame = function(game) { // when clicking on a prior game this loads that game onto the shown game div
-  console.log("To do, restore game state");
+  gameBoard = game.cells; // reverts game array to that game's cells
+  stillPlaying = !game.over; // if game isn't over we are now still playing
+  let moveCount = 0; // moveCount starts at 0
+  gameBoard.forEach((cell) => {
+    if (cell === 'X' || cell === 'O') { // if the cell has an X or O...
+      moveCount++; // add to the moveCount
+    }
+  });
+  if (moveCount % 2 === 0) {  // figures out who goes next
+    currentPlayer = 'X';
+  } else {
+    currentPlayer = 'O';
+  }
+  firstMoveMade = true; // there will always have been a first move to even initiate a new game so this will always stay true
+};
+
+const currentTurnPlayer = function () { // making this an exportable variable
+  return currentPlayer;
 };
 
 const stillPlayingGame = function() {
@@ -129,4 +146,5 @@ module.exports = {
   setUpBoardForGame,
   determineWinner,
   stillPlayingGame,
+  currentTurnPlayer,
 };

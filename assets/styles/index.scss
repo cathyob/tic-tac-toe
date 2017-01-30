@@ -204,10 +204,6 @@ input {
 }
 
 // changes color of outline when inside text fields in dropdown menus
-// TODO NEED TO ADD FOR SAFARI/MOZ?
-// TODO NEED ADD FOR SAFARI/MOZ?
-// TODO NEED TO ADD FOR SAFARI/MOZ?
-
 input:focus {
   outline-color: $a-orange;
 }

@@ -8,8 +8,6 @@ const ui = require('./ui');
 const store = require('../store');
 const board = require('../board');
 
-// TODO restore game list?
-
 // Setup the board so we can start playing
 board.setWinnerFunction(ui.gameOver); // When game is over call the gameOver function for the ui
 board.setTurn(ui.turnChange); // When a turn is over call turnChange function for the ui
@@ -38,7 +36,6 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure);
 };
 
-// USER ACCOUNT ACTIONS
 const onSignUp = function (event) {
   event.preventDefault();
 
@@ -49,7 +46,6 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure);
 };
 
-// USER ACCOUNT ACTIONS
 const onChangePassword = function (event) {
   event.preventDefault();
 
@@ -85,7 +81,6 @@ const startNewGame = function () {
   }
 };
 
-// USER ACCOUNT ACTIONS
 const onSignOut = function (event) {
   event.preventDefault();
 
@@ -100,8 +95,13 @@ const onSignOut = function (event) {
 };
 
 // UPDATE GAME ON SERVER
-const updateGame = function (board, index) { // split code into 2nd function to make easier to read
+const updateGame = function (board, index, endGame) { // split code into 2nd function to make easier to read
   api.saveGamesForUser(board.id, index, board.getTileValue(index), !board.stillPlayingGame()); // since game is now saved, we can now update the game id with the move on the tile (index), using the player's mark (index), but only if the game is not over
+
+  // If the game is over, call the endGame function
+  if(!board.stillPlayingGame()) {
+      endGame();
+  }
 };
 
 // CLICKING ACTION
@@ -118,7 +118,20 @@ const clickedSpace = function () {
       });
     }
     else {
-      updateGame(board, id); // if game already existed simply update the move
+      // Update the game, and if the game is over, call the game over function
+      // once the update api call returns
+      updateGame(board, id, function() {
+        api.getGamesForUser().then((gamesResponse) => { // gets all games saved to that user
+         store.games = gamesResponse.games; // this saves the games to use later
+
+         store.games.forEach((game) => { // will go through each past game and determine the winner if any
+           board.determineWinner(game);
+         });
+
+         ui.setGameHistory(gamesResponse.games); // this method passes an array of all the past games to the UI to use in the game history section
+         ui.prepareForNewGame();
+        });
+      }); // if game already existed simply update the move
     }
     $(this).text(board.getTileValue(id)); // that div is now set to x or o based on the board
   }
