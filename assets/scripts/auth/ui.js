@@ -3,12 +3,8 @@
 const store = require('../store');
 const board = require('../board');
 
-const success = (data) => {
-  if (data) { console.log(data); }
-};
-
 const failure = (error) => {
-  console.error(error);
+  // console.error(error);
 };
 
 const signInSuccess = (data) => {
@@ -26,14 +22,12 @@ const signInSuccess = (data) => {
   $("#waiting-for-sign-in").addClass('hidden');
   // displays turn/winner and game if sign in is successfull
   $("#user-is-playing").removeClass('hidden');
-  if (data) { console.log(data); }
 };
 
 const signInFailure = (error) => {
   // this will show the password was invalid
   $("#user-status").removeClass('hidden');
   $('.active-user').text("Sorry, that username or password was incorrect");
-  console.error(error);
 };
 
 const changePasswordSuccess = (data) => {
@@ -42,7 +36,6 @@ const changePasswordSuccess = (data) => {
   $('.new-password-change').val("");
   // this will show the active user name
   $('.active-user').text(store.user.email + "'s password has been updated!");
-  if (data) { console.log(data); }
 };
 
 const changePasswordFailure = (error) => {
@@ -50,7 +43,6 @@ const changePasswordFailure = (error) => {
   $('.current-password-change').val("");
   // this will show the password was invalid
   $('.active-user').text("Sorry, that current password was incorrect");
-  console.error(error);
 };
 
 const signUpSuccess = (data) => {
@@ -61,12 +53,7 @@ const signUpSuccess = (data) => {
   // this will confirm their sign up was sucessful
   $("#user-status").removeClass('hidden');
   $('.active-user').text("Thank you for joining! Please log in to start playing");
-
-  // $(".change-password").click(function() {
-  //  $(".dropdown-toggle").dropdown("toggle");
-  // // choosing NOT to hide the sign up form so user can make another account
-
-  if (data) { console.log(data); }
+  // choosing NOT to hide the sign up form so user can make another account
 };
 
 const signUpFailure = (error) => {
@@ -77,7 +64,6 @@ const signUpFailure = (error) => {
   // this will show the password was invalid
   $("#user-status").removeClass('hidden');
   $('.active-user').text("Sorry, that username has been used or your passwords did not match.");
-  console.error(error);
 };
 
 const signOutSuccess = (data) => {
@@ -95,7 +81,6 @@ const signOutSuccess = (data) => {
   // removes hidden class and adds back so we don't end up with two hidden classes on reset if signed out before reset game is clicked
   $("#reset-button").removeClass('hidden');
   $("#reset-button").addClass('hidden');
-  if (data) { console.log(data); }
 };
 
 const gameOver = (data) => {
@@ -124,8 +109,6 @@ const startNewGame = () => {
 const setCurrentGame = (data) => {
   store.currentGame = data;
   board.gameBoard = data.cells;
-  console.log("Any new game data?");
-  if (data) { console.log(data); }
 };
 
 const setGameHistory = (data) => {
@@ -150,12 +133,10 @@ const setGameHistory = (data) => {
     }
   );
   }
-  if (data) { console.log(data); }
 };
 
 module.exports = {
   failure,
-  success,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,

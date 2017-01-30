@@ -87,6 +87,18 @@ fieldset {
   color: $dk-cyan;
 }
 
+footer {
+  background-color: $dk-cyan;
+  bottom: 0; // fixed position at the bottom of the scren
+  clear: both;
+  color: $white;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: $padding / 2; // gives text buffer from top/bottom of div
+  padding-top: $padding / 2; // gives text buffer from top/bottom of div
+  position: fixed; // uses the bottom location
+  width: 100%; // keeps it the width of the page
+}
+
 // this is the game board
 .game {
   background: $white;
@@ -193,8 +205,9 @@ input {
 
 // changes color of outline when inside text fields in dropdown menus
 // TODO NEED TO ADD FOR SAFARI/MOZ?
+// TODO NEED ADD FOR SAFARI/MOZ?
 // TODO NEED TO ADD FOR SAFARI/MOZ?
-// TODO NEED TO ADD FOR SAFARI/MOZ?
+
 input:focus {
   outline-color: $a-orange;
 }
@@ -213,7 +226,7 @@ input:focus {
   }
 }
 
-// reduces side padding on group of 3 buttons after sign in
+// reduces side padding on each of 3 buttons after sign in
 .smaller-padding-buttons {
   padding-left: $padding / 2;
   padding-right: $padding / 2;

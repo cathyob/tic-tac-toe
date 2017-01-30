@@ -59,7 +59,6 @@ const isDraw = function() {
 // Called each time a player makes a move
 const makeMove = function (index) {
   gameBoard[index] = currentPlayer; // Make the next move in the game
-  console.log(firstMoveMade);
   if (winnerIs(currentPlayer)) { // Check if anyone has won the game
     stillPlaying = false; // Used to stop input because the game is over
     winnerCallback(currentPlayer); // Lets the winner callback run, with winning player

@@ -8,6 +8,12 @@ const ui = require('./ui');
 const store = require('../store');
 const board = require('../board');
 
+// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
+// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
+// TODO TAKE OUT CONSOLE LOGS EVERYWHERE!!!
+// TODO remove standard ui.failure and replace?
+// TODO restore game lsit?
+
 // Setup the board so we can start playing
 board.setWinnerFunction(ui.gameOver); // When game is over call the gameOver function for the ui
 board.setTurn(ui.turnChange); // When a turn is over call turnChange function for the ui
@@ -33,9 +39,6 @@ const onSignIn = function (event) {
       });
     })
     .then(ui.signInSuccess)
-    .then(() => {
-      console.log(store);
-    })
     .catch(ui.signInFailure);
 };
 
@@ -52,15 +55,13 @@ const onSignUp = function (event) {
 
 // USER ACCOUNT ACTIONS
 const onChangePassword = function (event) {
-  console.log("change password")
   event.preventDefault();
 
   let data = getFormFields(event.target);
 
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
-    ;
+    .catch(ui.changePasswordFailure);
 };
 
 const startNewGame = function () {
@@ -105,10 +106,7 @@ const onSignOut = function (event) {
 
 // UPDATE GAME ON SERVER
 const updateGame = function (board, index) { // split code into 2nd function to make easier to read
-  api.saveGamesForUser(board.id, index, board.getTileValue(index), !board.stillPlayingGame()) // since game is now saved, we can now update the game id with the move on the tile (index), using the player's mark (index), but only if the game is not over
-  .then((response) => {
-    console.log(response); // see console log and array will show the last move change
-  });
+  api.saveGamesForUser(board.id, index, board.getTileValue(index), !board.stillPlayingGame()); // since game is now saved, we can now update the game id with the move on the tile (index), using the player's mark (index), but only if the game is not over
 };
 
 // CLICKING ACTION
@@ -120,9 +118,7 @@ const clickedSpace = function () {
       board.isFirstMoveMade(true); // now that first move is made, isFirstMoveMade is now true
       api.createGamesForUser() // creates new board for the user after the first move
       .then((response) => {
-        console.log("response");
         board.id = response.game.id; // board is valid, saves the id number of the game
-        console.log(response); // see console to see new game id number
         updateGame(board, id); // now that game is created so update the move
       });
     }
