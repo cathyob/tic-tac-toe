@@ -99,6 +99,11 @@ footer {
   width: 100%; // keeps it the width of the page
 }
 
+.portfolio-link {
+  color: $white;
+  text-decoration: underline;
+}
+
 // this is the game board
 .game {
   background: $white;

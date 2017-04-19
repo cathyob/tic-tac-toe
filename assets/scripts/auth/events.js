@@ -73,7 +73,7 @@ const startNewGame = function () {
      ui.deleteOldGameTiles();
      ui.startNewGame();
     });
-  } else {
+  } else { // make gameboard blank if user sign outs
     ui.turnChange('X'); // Let the UI know that 'X' is the starting player
     board.resetBoard();
     ui.deleteOldGameTiles();
