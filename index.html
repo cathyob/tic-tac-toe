@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    <!-- added font style-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body class="container col-xs-12">
+
+<!-- TITLE OF WEBSITE AND BUTTONS-->
+  <div class="container col-xs-12 title-buttons">
+    <div class="col-xs-12 title">
+      <img src="https://raw.githubusercontent.com/cathyob/tic-tac-toe/master/assets/Title.png" alt="TIC TAC TOE" class="title-img">
+    </div>
+
+    <!-- SIGN IN AND SIGN UP BUTTONS-->
+    <div class="container col-xs-12 topbuttons" id="initial-user-options">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN IN-->
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-in-form">
+            Sign In
+          </button>
+          <form class="dropdown-menu" id="sign-in">
+            <fieldset>
+              <div class="input">
+                <label class="email">
+                Username
+                <input class="email-sign-in" type="text" name="credentials[email]">
+              </label>
+            </div>
+              <div class="input">
+                <label class="password">
+                Password
+                <input class="pass-sign-in" type="password" name="credentials[password]">
+              </label>
+            </div>
+              <input class="close-dropdown" type="submit" name="submit" value="Sign in!">
+            </fieldset>
+          </form>
+        </div>
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN UP-->
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sign-up-form">
+              Sign Up
+            </button>
+            <form class="dropdown-menu" id="sign-up">
+              <fieldset>
+                <div class="input">
+                  <label class="email">
+                  Username
+                  <input class="email-sign-up"
+                  type="text" name="credentials[email]">
+                </label>
+              </div>
+                <div class="input">
+                  <label class="password">
+                  Password
+                  <input class="password-sign-up" type="password" name="credentials[password]">
+                </label>
+              </div>
+                <div class="input">
+                  <label class="password_confirmation">
+                  Password Confirmation
+                  <input class="password-confirmation-sign-up" type="password" name="credentials[password_confirmation]">
+                </label>
+              </div>
+                <input class="close-dropdown" type="submit" name="submit" value="Sign up!">
+              </fieldset>
+            </form>
+          </div>
+      </div>
+    </div>
+
+    <!-- GAME LIST AND CHANGE PASSWORD AND SIGN OUT BUTTONS-->
+    <div class="container col-xs-12 topbuttons hidden" id="active-user-options">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group"> <!-- THIS IS A GAME LIST OF ACTIVE AND DONE GAMES-->
+            <button type="button" class="btn btn-default smaller-padding-buttons dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="game-history-button">
+              Game List
+            </button>
+            <div class="dropdown-menu history" id="game-history-list">
+              <!-- THIS WILL SHOW PAST GAMES IF ANY-->
+            </div>
+          </div>
+        <div class="btn-group dropdown" role="group"> <!-- THIS IS CHANGE PASSWORD-->
+            <button type="button" class="btn btn-default dropdown-toggle smaller-padding-buttons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="change-password-form">
+              Change Password
+            </button>
+            <form class="dropdown-menu" id="change-password">
+              <fieldset>
+                <div class="input">
+                  <label>
+                  Current Password
+                  <input class="current-password-change" type="password" name="passwords[old]">
+                </label>
+              </div>
+                <div class="input">
+                  <label>
+                  New Password
+                  <input class="new-password-change" type="password" name="passwords[new]">
+                </label>
+              </div>
+                <input class="close-dropdown" type="submit" name="submit" value="Change Password!">
+              </fieldset>
+            </form>
+          </div>
+        <div class="btn-group" role="group"> <!-- THIS IS SIGN OUT-->
+          <button class="btn btn-default smaller-padding-buttons" value="input" type="submit" name="submit" id="sign-out">Sign Out</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- END TITLE OF WEBSITE AND BUTTONS-->
+
+<!-- IS ANYONE SIGNED IN -->
+    <div class="container col-xs-12 user-status hidden" id="user-status">
+      <div class="col-xs-12 user">
+        <p class="active-user"></p>
+      </div>
+    </div>
+
+<!--  PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
+    <div class="container col-xs-12 waiting-for-sign-in" id="waiting-for-sign-in">
+      <div class="please col-xs-12" id="please-sign-in"> <!--  PLEASE SIGN IN MESSAGE-->
+        <div class="col-xs-12">
+          <p>Please sign up if you don't have an account already! Then sign in to play the game! </p>
+        </div>
+      </div>
+      <div class="image col-xs-12" id="waiting-for-user"> <!-- WAITING FOR USER IMAGE-->
+        <img src="https://github.com/cathyob/tic-tac-toe/blob/master/assets/XsAndOs.png?raw=true" alt="Xs and Os image" class="closed">
+      </div>
+    </div>
+<!--  END PLEASE SIGN IN MESSAGE AND WAITING IMAGE-->
+
+<!--  TURN OR WINNER AND TIC TAC TOE BOARD-->
+    <div class="container col-xs-12 hidden" id="user-is-playing">
+      <div class="turn col-xs-12" id="turn-or-winner"> <!--  TURN OR WINNER-->
+        <p class="winner-announcement"></p>
+      </div>
+      <div class="game" id="game-board-display"> <!--  TIC TAC TOE BOARD-->
+        <div class="col-xs-12 row">
+           <div class="col-xs-4 tile" data-id=0></div>
+           <div class="col-xs-4 top-bot-mid tile" data-id=1></div>
+           <div class="col-xs-4 tile" data-id=2></div>
+         </div>
+         <div class="col-xs-12 row">
+           <div class="col-xs-4 mid-side tile" data-id=3> </div>
+           <div class="col-xs-4 mid-mid tile" data-id=4></div>
+           <div class="col-xs-4 mid-side tile" data-id=5></div>
+         </div>
+         <div class="col-xs-12 row">
+           <div class="col-xs-4 tile" data-id=6></div>
+           <div class="col-xs-4 top-bot-mid tile" data-id=7></div>
+           <div class="col-xs-4 tile" data-id=8></div>
+         </div>
+       </div>
+      <div class="container col-xs-12 start-new-button"> <!-- THIS IS START NEW GAME-->
+        <div class="btn-group hidden" role="group" id="reset-button">
+          <button class="btn btn-default" type="button" id="start-new-game">Start new game?</button>
+        </div>
+      </div>
+     </div>
+<!--  END TURN OR WINNER AND TIC TAC TOE BOARD-->
+
+<!-- TODO eventually add link to github/portfolio?-->
+<footer>&copy; 2017 <a href="http://www.cathyobrien.co" target="_blank" class="portfolio-link">Cathy O'Brien</a> All Rights Reserved</footer>
+  </body>
+</html>
